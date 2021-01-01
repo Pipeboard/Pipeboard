@@ -1,0 +1,40 @@
+{
+  "name": "pipeboard",
+  "version": "0.1.1",
+  "description": "Pipeboard for NPM! - The best all in one PHP environment manager, web dashboard and app manager software for website development and hosting on terminal platforms.",
+  "main": "system/main.js",
+  "scripts": {
+    "test": "node system/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pipeboard/Pipeboard.git"
+  },
+  "keywords": [
+    "pipeboard",
+    "apache",
+    "internet",
+    "websites",
+    "containers",
+    "manager",
+    "dashboard",
+    "console-app",
+    "linux",
+    "ubuntu",
+    "terminal-app"
+  ],
+  "author": "Pipeboard, Inc.",
+  "license": "CC0-1.0",
+  "bugs": {
+    "url": "https://github.com/Pipeboard/Pipeboard/issues"
+  },
+  "homepage": "https://pipeboard.org",
+  "dependencies": {
+    "express": "^4.17.1",
+    "go": "^3.0.1",
+    "node": "^15.4.0",
+    "node-cmd": "^4.0.0",
+    "nodejs": "0.0.0",
+    "socket.io": "^3.0.4"
+  }
+}
