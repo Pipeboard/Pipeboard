@@ -1,5 +1,2 @@
 language: node_js
-before_script:
-  - npm install npm@7.3.0
-cache: npm
 os: linux
