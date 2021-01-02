@@ -3,4 +3,3 @@ before_script:
   - npm install npm
 cache: npm
 os: linux
-dist: ubuntu
