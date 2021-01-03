@@ -32,7 +32,6 @@
   "dependencies": {
     "express": "^4.17.1",
     "go": "^3.0.1",
-    "node": "^15.4.0",
     "node-bin-setup": "^1.0.6",
     "node-cmd": "^4.0.0",
     "nodejs": "0.0.0",
