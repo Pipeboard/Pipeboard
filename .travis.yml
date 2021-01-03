@@ -1,6 +1,7 @@
-language: node_js
+language:
+- node_js
 os: linux
 before_script:	
-  - npm install npm	
-  - npm install node
+- npm install npm	
+- npm install node
 dist: xenial
