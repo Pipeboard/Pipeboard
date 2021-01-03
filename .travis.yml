@@ -7,7 +7,7 @@ os: linux
 dist: xenial
 before_script:
   - npm install
-install:
+after_install:
   - pipeboard check
   - pipeboard setup -usedefaults
   - pipeboard run -endafter 5s
