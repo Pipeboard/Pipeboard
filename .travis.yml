@@ -1,11 +1,19 @@
 language:
   - node_js
 node_js: 14
+npm: 6.14.10
+nvm: 0.37.2
 os: linux
-before_script:	
-  - npm install npm	
-  - npm install node
+dist: xenial
+before_script:
   - npm install
+install:
+  - pipeboard check
+  - pipeboard setup -usedefaults
+  - pipeboard run -endafter 5s
 cache:
   npm: false
-dist: xenial
+env:
+  global:
+    - PIPEBOARD_FULLY_UPDATED=1
+    - PIPEBOARD_INSTALL=GITHUB
