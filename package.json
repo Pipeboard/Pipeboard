@@ -31,8 +31,6 @@
   "homepage": "https://pipeboard.org",
   "dependencies": {
     "express": "^4.17.1",
-    "go": "^3.0.1",
-    "node": "^15.4.0",
-    "node-cmd": "^4.0.0"
+    "node": "^15.4.0"
   }
 }

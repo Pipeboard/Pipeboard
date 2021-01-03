@@ -1,6 +1,2 @@
 language: node_js
-before_script:
-  npm install npm
-  npm install node
-cache: npm
 os: linux
