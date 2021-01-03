@@ -1,7 +1,11 @@
 language:
-- node_js
+  - node_js
+node_js: latest
 os: linux
 before_script:	
-- npm install npm	
-- npm install node
+  - npm install npm	
+  - npm install node
+  - npm install
+cache:
+  npm: false
 dist: xenial
