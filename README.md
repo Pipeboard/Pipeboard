@@ -4,8 +4,7 @@
 
 # Pipeboard
 Hello and welcome to the Pipeboard official repository; here you'll find everything you need to know for installing and find the source code for your own use
-or installation (respecting the lisence ofcourse) or reporting bugs and contributing. See the **[about section](#about)**
-for more information about the project!
+or installation (respecting the lisence ofcourse) or reporting bugs and contributing. See the [about section](#about) for more information about the project!
 
 ## About
 Pipeboard is a web dashboard built with [Node](https://nodejs.org), [React](https://reactjs.org), [JS](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
@@ -16,14 +15,14 @@ Behind an idea, there's always a story. - Pipeboard was created initally as an i
 some research, finding that many open source/free softwares didn't really complete the job at hand, or were outdated and not user-friendly/unattractive, so
 Pipeboard was born from that frustration and in an effort to help other developers.
 
-> *<ins><b>FACT!</b></ins>* Pipeboard was named Pipeboard becuase pipes create things and cardBOARD boxes hold things. In this case the pipes enpower the
+> <ins><b>FACT!</b></ins> - Pipeboard was named Pipeboard becuase <b>pipe</b>s create things and card<b>board</b> boxes hold things. In this case the pipes enpower the
 apps and the board would be the app's virtual machines/containers.
 
 ## Compatibility
 Right now, Pipeboard can only runs on command line based machine with npm, docker and no port-conflicting programs. For non-command-line desktop machines, please
 check out [Piperunner](https://github.com/Pipeboard/Piperunner) which is a controller desktop app for running Pipeboard in a window.
 
-> *<ins><b>INFO!</b></ins>* In the case of desktops with terminal applications; either may be able to be used, with requirements for machines, however it is
+> <ins><b>TIP!</b></ins> - In the case of desktops with terminal applications; either may be able to be used, with requirements for machines, however it is
 recommended to use the Piperunner instead as on Macs its harder to navigate the commandline, but it's up to you.
 
 ### Guide
