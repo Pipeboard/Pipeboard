@@ -30,7 +30,6 @@
   },
   "homepage": "https://pipeboard.org",
   "dependencies": {
-    "express": "^4.17.1",
-    "node": "^15.4.0"
+    "express": "^4.17.1"
   }
 }
