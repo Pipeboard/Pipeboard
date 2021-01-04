@@ -71,12 +71,13 @@ Now that you've checked that your system is suported above, you can move forward
 
 ## Downloads
 
-<!-- <ins><b>Version 0.1.2</b></ins>
+<b style="color:red;">Version 0.1.2</b><br>
+Unusable, Unfinished
 
 **Npm Registry** - https://npm.com/package/pipeboard-0.1.2<br>
 **JS Delivr** - https://jsdelivr.com/package/npm/pipeboard-0.1.2<br>
-**Openbase.io** - https://openbase.io/js/pipeboard-0.1.2<br>
-**Github Releases** - https://github.com/Pipeboard/Pipeboard/releases/tag/v0.1.2 -->
+**Openbase<span>.</span>io** - https://openbase.io/js/pipeboard-0.1.2<br>
+**Github** - https://github.com/Pipeboard/Pipeboard/releases/tag/v0.1.2
 
 <b style="color:red;">Version 0.1.1</b><br>
 Unusable, Unfinished

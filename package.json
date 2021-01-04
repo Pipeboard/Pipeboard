@@ -1,6 +1,6 @@
 {
-  "name": "pipeboard-0.1.1",
-  "version": "0.1.1",
+  "name": "pipeboard-0.1.2",
+  "version": "0.1.2",
   "description": "Pipeboard for NPM! - The best all in one PHP environment manager, web dashboard and app manager software for website development and hosting on terminal platforms.",
   "main": "system/main.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Pipeboard/Pipeboard.git"
+    "url": "git://github.com/Pipeboard/Pipeboard.git"
   },
   "keywords": [
     "pipeboard",
