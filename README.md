@@ -35,6 +35,8 @@ Right now, Pipeboard can only runs on command line based machine with npm, docke
 | MacOS Terminal | Any | 32x, 64x | ![](https://i.imgur.com/86ADFBS.png) |
 | Windows Terimal | Any | 32x, 64x | ![](https://i.imgur.com/86ADFBS.png) |
 | PowerShell | Any | N/A | ![](https://i.imgur.com/lHPSCrC.png) |
+| Msys | Any | N/A | ![](https://i.imgur.com/lHPSCrC.png) |
+| FreeBSD | Any | 32x, 64x | ![](https://i.imgur.com/lHPSCrC.png) |
 | Orcale | Any | 32x, 64x | ![](https://i.imgur.com/lHPSCrC.png) |
 | ClearOS | Any | N/A | ![](https://i.imgur.com/lHPSCrC.png) |
 
@@ -58,22 +60,52 @@ Now that you've checked that your system is suported above, you can move forward
 - Unpack and check download and files.
 
    ```
-   pipeboard check
-   npm install
-   pipeboard update #you can skip if installing an old version
+   pipeboard check #confirms all assets
+   pipeboard update (optional)
    ```
-- Setup your Pipeboard with `pipeboard setup`.
+- Prep for running & installation.
+   ```
+   pipeboard prep
+   ```
+- Setup your Pipeboard install.
+   ```
+   pipeboard setup
+   ```
 - Run Pipeboard in demo mode to catch any errors.
    
    ```
    pipeboard run
    ```
 - Put on a docker, optionally.
-- Confirm your Pipeboard installation is running and head to localhost (or pipeboard.dev if you already enabled the DNS engine.) to setup the panel.
-- Setup docked engines and modules.
+   ```
+   pipeboard run -bg
+   ```
+- Confirm your Pipeboard installation is running and head to [localhost](https://localhost) (or [pipeboard.dev](https://pipeboard.dev) if you already enabled the DNS engine) to setup the panel.
+- Setup docked engines and modules, if you haven't already done so.
+   ```
+   pipeboard mods install -all
+   ```
 - Have fun with Pipeboard and make the web your oyster! :)
 
 ## Downloads
+
+<details>
+   <summary>
+      <b>
+         <span style="color: orange;">Version 0.1.3</span> - 👎
+      </b>
+      <br>
+      <div width="30px"></div>Unusable (at the moment), WIP
+   </summary>
+   <br>
+
+   **Npm Registry** - https://npm.com/package/pipeboard-0.1.3<br>
+   **JS Delivr** - https://jsdelivr.com/package/npm/pipeboard-0.1.3<br>
+   **Openbase<span>.</span>io** - https://openbase.io/js/pipeboard-0.1.3<br>
+   **Github** - https://github.com/Pipeboard/Pipeboard/releases/tag/v0.1.3
+
+   *Links may not be active yet!*
+</details>
 
 <details>
    <summary>
@@ -120,13 +152,13 @@ Nothing here, just yet... :)
 Nothing here, just yet... :)
 
 ## Contributors
+If your intrested in becoming a Pipeboard developer, please reach out. We do not list issue-trackers or fork/pull request-ers here.  
 | Name | Username | Role |
 | --- | --- | --- |
 | Nathanna | [@nathannaofficial](https://github.com/nathannaofficial.com) | Lead Developer & Creator |
 
-
 ## Lisence
-Pipeboard and all official resources are lisenced under CC0-1.0 or "Creative Commons Zero v1.0 Universal". Please see the [LISENCE](LICENSE) file for details.
+Pipeboard and all official resources are lisenced under CC0-1.0 or "Creative Commons Zero v1.0 Universal". Please see the [LISENCE](LICENSE) file for more details and information.
 
 ## Resources
 
