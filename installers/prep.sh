@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function linux_prep() {
-    echo "Setting up for linux...\n\n";
+    printf "Setting up for linux...\n\n";
     apt-get update
     yum update
     sudo apt-get install npm
@@ -11,53 +11,54 @@ function linux_prep() {
     sudo yum install docker
     sudo systemctl start docker
     sudo service start docker
-    echo "\n\nAll setup for linux, continuing to grab modules..."
+    printf "\n\nAll setup for linux, continuing to grab modules...\n\n"
     bash ./installers/moduler.sh
 }
 
 function apt_linux_prep() {
-    echo "Setting up for linux...\n\n";
+    printf "Setting up for linux...\n\n";
     apt-get update
     sudo apt-get install npm
     npm install
     sudo apt-get install docker
     sudo systemctl start docker
     sudo service start docker
-    echo "\n\nAll setup for linux, continuing to grab modules..."
+    printf "\n\nAll setup for linux, continuing to grab modules...\n\n"
     bash ./installers/moduler.sh
 }
 
 function yum_linux_prep() {
-    echo "Setting up for centOS...\n\n";
+    printf "Setting up for centOS...\n\n";
     yum update
     sudo yum install npm
     npm install
     sudo yum install docker
     sudo systemctl start docker
     sudo service start docker
-    echo "\n\nAll setup for centOS, continuing to grab modules..."
+    printf "\n\nAll setup for centOS, continuing to grab modules...\n\n"
     bash ./installers/moduler.sh
 }
 
 function mac_prep() {
-    echo "Setting up for mac...\n\n";
+    printf "Setting up for mac...\n\n";
     brew install npm
     npm install
     brew install docker
     open --hide --background -a Docker
-    echo "\n\nAll setup for mac, continuing to grab modules..."
+    printf "\n\nAll setup for mac, continuing to grab modules...\n\n"
     bash ./installers/moduler.sh
 }
 
 function win_prep() {
     echo "Setting up for windows/windows server...";
     ./installers/preqs/Win8.1AndW2K12R2-KB3191564-x64.msu /quiet /norestart
-    Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+    $cmda1="Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))"
+    "${cmda1[@]}"
     choco install npm
     npm install
     choco install docker
     open --hide --background -a Docker
-    echo "\n\nAll setup for windows, continuing to grab modules..."
+    printf "\n\nAll setup for windows, continuing to grab modules...\n\n"
     bash ./installers/moduler.sh
 }
 
