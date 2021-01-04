@@ -7,11 +7,12 @@ os: linux
 dist: xenial
 before_script:
   - npm install
-  - apt-get docker
-after_install:
-  - pipeboard check
-  - pipeboard setup -usedefaults
-  - pipeboard run -endafter 5s
+  - apt-get install docker
+  - 
+after_script:
+  # - pipeboard check
+  # - pipeboard setup -usedefaults
+  # - pipeboard run -endafter 5s
 cache:
   npm: false
 env:
