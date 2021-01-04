@@ -3,6 +3,8 @@
 </p>
 
 # Pipeboard
+[![Build Status](https://travis-ci.com/Pipeboard/Pipeboard.svg)](https://travis-ci.com/Pipeboard/Pipeboard)
+#
 Hello and welcome to the Pipeboard official repository; here you'll find everything you need to know for installing and find the source code for your own use or installation (respecting the lisence ofcourse) or reporting bugs and contributing. See the [about section](#about) for more information about the project!
 
 ## About
@@ -17,7 +19,7 @@ Right now, Pipeboard can only runs on command line based machine with npm, docke
 
 > <ins><b>TIP!</b></ins> - In the case of desktops with terminal applications; either may be able to be used, with requirements for machines, however it is recommended to use the Piperunner instead as on Macs its harder to navigate the commandline, but it's up to you.
 
-### Guide
+### Guide Chart
 
 | Platform | Version | Capacity | Compatibility |
 | :--- | --- | --- | :---: |
@@ -34,6 +36,7 @@ Right now, Pipeboard can only runs on command line based machine with npm, docke
 ## Installation
 
 Now that you've checked that your system is suported above, you can move forward with your install. If your a beginner installing Pipeboard, please read our detailed guide, [Getting Started](https://github.com/pipeboard/pipeboard/wiki/getting-started) on the Wiki, which has step-by-step instructions for every platform.
+<br><br>
 
 - Check that your OS is supported.
 - Install Pipeboard through NPM or directly from the repo.
@@ -64,20 +67,49 @@ Now that you've checked that your system is suported above, you can move forward
 - Confirm your Pipeboard installation is running and head to localhost (or pipeboard.dev if you already enabled the DNS engine.) to setup the panel.
 - Setup docked engines and modules.
 - Have fun with Pipeboard and make the web your oyster! :)
+<br>
+
+## Downloads
+
+<!-- <ins><b>Version 0.1.2</b></ins>
+
+**Npm Registry** - https://npm.com/package/pipeboard-0.1.2<br>
+**JS Delivr** - https://jsdelivr.com/package/npm/pipeboard-0.1.2<br>
+**Openbase.io** - https://openbase.io/js/pipeboard-0.1.2<br>
+**Github Releases** - https://github.com/Pipeboard/Pipeboard/releases/tag/v0.1.2 -->
+
+<b style="color:red;">Version 0.1.1</b><br>
+Unusable, Unfinished
+
+**Npm Registry** - https://npm.com/package/pipeboard-0.1.1<br>
+**JS Delivr** - https://jsdelivr.com/package/npm/pipeboard-0.1.1<br>
+**Openbase<span>.</span>io** - https://openbase.io/js/pipeboard-0.1.1<br>
+**Github** - https://github.com/Pipeboard/Pipeboard/releases/tag/v0.1.1
 
 ## Screenshots
 
+Nothing here, just yet... :)
+
 ## Tutorials
+
+Nothing here, just yet... :)
 
 ## Addons
 
+Nothing here, just yet... :)
+
 ## Contributors
-Nathanna: Creator and Lead Developer ([@nathannaofficial](https://github.com/nathannaofficial.com))
+| Name | Username | Role |
+| --- | --- | --- |
+| Nathanna | [@nathannaofficia](https://github.com/nathannaofficial.com)) | Lead Developer & Creator |
+
 
 ## Lisence
-Pipeboard and all official resources are lisenced under CC0-1.0 or "Creative Commons Zero v1.0 Universal"- please see the [LISENCE](LICENSE) file for details.
+Pipeboard and all official resources are lisenced under CC0-1.0 or "Creative Commons Zero v1.0 Universal". Please see the [LISENCE](LICENSE) file for details.
 
 ## Resources
 
-Official Website - https://pipeboard.org
-Official Github - https://github.com/Pipeboard
+Website - https://pipeboard.org<br>
+Github - https://github.com/Pipeboard<br>
+Twitter - https://twitter.com/PipeboardProject<br>
+Facebook - https://facebook.com/Pipeboard-105017771541767<br>
