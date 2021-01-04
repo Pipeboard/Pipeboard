@@ -5,9 +5,9 @@
   "main": "system/main.js",
   "scripts": {
     "test": "source ./installers/cli.sh and pipeboard run",
-    "postinstall": "source ./installers/cli.sh",
+    "postinstall": "source installers/cli.sh",
     "start": "pipeboard start",
-    "refresh": "source ./installers/cli.sh"
+    "cli-refresh": "source installers/cli.sh"
   },
   "repository": {
     "type": "git",
