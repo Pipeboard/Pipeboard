@@ -102,7 +102,7 @@ Nothing here, just yet... :)
 ## Contributors
 | Name | Username | Role |
 | --- | --- | --- |
-| Nathanna | [@nathannaofficia](https://github.com/nathannaofficial.com)) | Lead Developer & Creator |
+| Nathanna | [@nathannaofficial](https://github.com/nathannaofficial.com) | Lead Developer & Creator |
 
 
 ## Lisence
