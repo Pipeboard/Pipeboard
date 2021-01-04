@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function linux_prep() {
-    echo "linux";
+    echo "Setting up for linux...";
     # sudo apt-get install npm
     # npm install
     # sudo apt-get install docker
@@ -11,7 +11,7 @@ function linux_prep() {
 }
 
 function mac_prep() {
-    echo "mac";
+    echo "Setting up for mac...";
     # sudo brew install npm
     # npm install
     # sudo brew install docker
@@ -23,22 +23,22 @@ uname="`uname`"
 
 echo $uname;
 
-if [ "$uname" = "linux-gnu" ];
+if [ "$uname" = "Linux" ];
 then
     linux_prep
-elif [ "$uname" = "darwin" ];
+elif [ "$uname" = "Darwin" ];
 then
     mac_prep
-elif [ "$uname" = "cygwin" ];
+elif [ "$uname" = "Cygwin" ];
 then
     linux_prep
-elif [ "$uname" = "msys" ];
+elif [ "$uname" = "Msys" ];
 then
     win_prep
-elif [ "$uname" = "win32" ];
+elif [ "$uname" = "Win32" ];
 then
     win_prep
-elif [ "$uname" = "freebsd" ];
+elif [ "$uname" = "Freebsd" ];
 then
     linux_prep
 else
