@@ -30,6 +30,7 @@
   },
   "homepage": "https://pipeboard.org",
   "dependencies": {
+    "dockerode": "^3.2.1",
     "express": "^4.17.1",
     "node-bin-setup": "^1.0.6",
     "node-cmd": "^4.0.0",
