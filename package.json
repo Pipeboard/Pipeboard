@@ -1,6 +1,6 @@
 {
-  "name": "pipeboard-0.1.2",
-  "version": "0.1.2",
+  "name": "pipeboard-0.1.3",
+  "version": "0.1.3",
   "description": "Pipeboard for NPM! - The best all in one PHP environment manager, web dashboard and app manager software for website development and hosting on terminal platforms.",
   "main": "system/main.js",
   "scripts": {
