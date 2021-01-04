@@ -5,10 +5,12 @@ function linux_prep() {
     apt-get update
     yum update
     sudo apt-get install npm
-    sudo yum install npm
-    npm install
+    sudo apt-get install nodejs
     sudo apt-get install docker
+    sudo yum install npm
+    sudo yum install nodejs
     sudo yum install docker
+    npm install
     sudo systemctl start docker
     sudo service start docker
     printf "\n\nAll setup for linux, continuing to grab modules...\n\n"
@@ -19,8 +21,9 @@ function apt_linux_prep() {
     printf "Setting up for linux...\n\n";
     apt-get update
     sudo apt-get install npm
-    npm install
+    sudo apt-get install nodejs
     sudo apt-get install docker
+    npm install
     sudo systemctl start docker
     sudo service start docker
     printf "\n\nAll setup for linux, continuing to grab modules...\n\n"
@@ -31,8 +34,9 @@ function yum_linux_prep() {
     printf "Setting up for centOS...\n\n";
     yum update
     sudo yum install npm
-    npm install
+    sudo yum install nodejs
     sudo yum install docker
+    npm install
     sudo systemctl start docker
     sudo service start docker
     printf "\n\nAll setup for centOS, continuing to grab modules...\n\n"
@@ -41,9 +45,11 @@ function yum_linux_prep() {
 
 function mac_prep() {
     printf "Setting up for mac...\n\n";
+    sudo chown -R $(whoami) $(brew --prefix)/*
     brew install npm
-    npm install
+    brew install nodejs
     brew install docker
+    npm install
     open --hide --background -a Docker
     printf "\n\nAll setup for mac, continuing to grab modules...\n\n"
     bash ./installers/moduler.sh
@@ -55,16 +61,16 @@ function win_prep() {
     $cmda1="Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))"
     "${cmda1[@]}"
     choco install npm
-    npm install
+    choco install nodejs
     choco install docker
+    npm install
     open --hide --background -a Docker
     printf "\n\nAll setup for windows, continuing to grab modules...\n\n"
     bash ./installers/moduler.sh
 }
 
 uname="`uname`"
-
-echo $uname;
+# echo $uname;
 
 if [ "$uname" = "Linux" ];
 then
