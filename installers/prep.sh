@@ -1,22 +1,35 @@
 #!/bin/bash
 
 function linux_prep() {
-    echo "Setting up for linux...";
-    # sudo apt-get install npm
-    # npm install
-    # sudo apt-get install docker
-    # sudo systemctl start docker
-    # sudo service start docker
-    # bash ./installers/moduler.sh
+    echo "Setting up for linux...\n\n";
+    apt-get update
+    sudo apt-get install npm
+    npm install
+    sudo apt-get install docker
+    sudo systemctl start docker
+    sudo service start docker
+    bash ./installers/moduler.sh
+    echo "\n\nAll setup for linux, continuing to grab modules..."
 }
 
 function mac_prep() {
-    echo "Setting up for mac...";
-    # sudo brew install npm
-    # npm install
-    # sudo brew install docker
-    # sudo launchctl start docker
-    # bash ./installers/moduler.sh
+    echo "Setting up for mac...\n\n";
+    brew install npm
+    npm install
+    brew install docker
+    open --hide --background -a Docker
+    bash ./installers/moduler.sh
+    echo "\n\nAll setup for mac, continuing to grab modules..."
+}
+
+function win_prep() {
+    echo "Setting up for windows/windows server...";
+    brew install npm
+    npm install
+    brew install docker
+    open --hide --background -a Docker
+    bash ./installers/moduler.sh
+    echo "\n\nAll setup for windows, continuing to grab modules..."
 }
 
 uname="`uname`"
