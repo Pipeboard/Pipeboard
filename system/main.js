@@ -7,7 +7,7 @@ var docker = new Docker({
 });
 
 docker.createContainer({Image: 'httpd', Cmd: ['/bin/bash'], name: 'test'}, function (err, container) {
-  // console.log(err);
+  console.log(err);
   // console.log(container);
   container.start(function (err, data) {
     console.log(data);
