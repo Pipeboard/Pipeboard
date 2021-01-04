@@ -7,7 +7,7 @@ os: linux
 dist: xenial
 before_script:
   - npm install
-  - apt-get install docker
+  - sudo apt-get install docker
   - 
 after_script:
   # - pipeboard check
