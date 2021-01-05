@@ -5,7 +5,7 @@
 
 # Pipeboard
 
-Hello and welcome to the Pipeboard official repository; here you'll find everything you need to know for installing and find the source code for your own use or installation (respecting the lisence ofcourse) or reporting bugs and contributing. See the [about section](#about) for more information about the project!
+Hello and welcome to the Pipeboard official repository; here you'll find everything you need to know for installing and find the source code for your own use or installation (respecting the licence of course) or reporting bugs and contributing. See the [about section](#about) for more information about the project!
 <br>
 <br>
 [![Version Number](https://img.shields.io/badge/version-0.1.3-c89467)](#Downloads)
@@ -15,7 +15,7 @@ Hello and welcome to the Pipeboard official repository; here you'll find everyth
 ## About
 Pipeboard is a web dashboard built with [**Node**](https://nodejs.org), [**React**](https://reactjs.org), **JavaScript**, [**PHP**](https://www.php.net/) and **Shell**, that alows an enduser (or users, see reseller info) install, configure and manage lots of - traditionally terminal only - programs and applications in one neat interface without touching the command line.†
 
-Behind an idea, there's always a story. - Pipeboard was created initally as an internal tool for web hosting with no cost (unlike cPanel or Plesk), but after some research, finding that many open source/free softwares didn't really complete the job at hand, or were outdated and not user-friendly/unattractive, so Pipeboard was born from that frustration and in an effort to help other developers.
+Behind an idea, there's always a story. - Pipeboard was created initialy as an internal tool for web hosting with no cost (unlike cPanel or Plesk), but after some research, finding that many open source/free softwares didn't really complete the job at hand, or were outdated and not user-friendly/unattractive, so Pipeboard was born from that frustration and in an effort to help other developers.
 
 > <ins><b>FACT!</b></ins> - Pipeboard was named Pipeboard becuase <b>pipe</b>s create things and card<b>board</b> boxes hold things. In this case the pipes enpower the apps and the board would be the app's virtual machines/containers.
 
@@ -162,8 +162,16 @@ Pipeboard and all official resources are lisenced under CC0-1.0 or "Creative Com
 
 ## Resources
 
-Homepage - https://pipeboard.org<br>
-Github Home - https://github.com/Pipeboard<br>
-Twitter Page - https://twitter.com/PipeboardProject<br>
+**Website** - https://pipeboard.org<br>
+**Github Page** - https://github.com/Pipeboard<br>
+**Twitter Page** - https://twitter.com/PipeboardProject<br>
 Facebook Page - https://facebook.com/Pipeboard-105017771541767<br>
-NPM Home - https://npmjs.com/org/pipeboard
+**NPM Page** - https://npmjs.com/org/pipeboard
+
+## Repositories
+
+Don't like GitHub? Don't worry, you can find us at other locations too.
+
+**BitBucket** - https://bitbucket.io/Pipeboard/Pipeboard
+**GitLabs** - https://gitlabs.com/Pipeboard/Pipeboard
+**Sourceforge** - https://sourceforge.net/projects/pipeboard
