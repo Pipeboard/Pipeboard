@@ -172,6 +172,6 @@ Facebook Page - https://facebook.com/Pipeboard-105017771541767<br>
 
 Don't like GitHub? Don't worry, you can find us at other locations too.
 
-**BitBucket** - https://bitbucket.io/Pipeboard/Pipeboard
-**GitLabs** - https://gitlabs.com/Pipeboard/Pipeboard
-**Sourceforge** - https://sourceforge.net/projects/pipeboard
+**BitBucket** - https://bitbucket.io/Pipeboard/Pipeboard<br>
+**GitLabs** - https://gitlabs.com/Pipeboard/Pipeboard<br>
+**Sourceforge** - https://sourceforge.net/projects/pipeboard<br>
