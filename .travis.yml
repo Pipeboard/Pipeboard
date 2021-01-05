@@ -4,13 +4,8 @@ node_js: 14
 npm: 6.14.10
 os: linux
 dist: xenial
-before_script:
-  - source ./installers/cli.sh
-  - pipeboard prep
-after_script:
-  # - pipeboard check
-  # - pipeboard setup -usedefaults
-  # - pipeboard run -endafter 5s
+script:
+  - npm run test
 cache:
   npm: false
 env:
