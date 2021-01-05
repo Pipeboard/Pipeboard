@@ -198,21 +198,15 @@ xhttp.onreadystatechange = function() {
         let json1 = json[0];
         let downloadurl = json1.tarball_url;
         
-        let ltag = "0.0.0";
+        const ltag = "0.0.0";
         let xtag = json1.tag_name;
     
         let path1 = path.join(__dirname, '../../VERSION');
         fs.readFile(path1, {encoding: 'utf-8'}, function(err,data){
             if(err) {console.log(err);}
-
-            let ltagx = data;
-
-            ltag = ltagx;
-
-            // console.log(ltag + xtag);
+            const ltag = "" + data;
 
             let compareresults = checkifbigger(ltag, xtag);
-
             if(compareresults == ltag) {
                 console.log("Your on the latest version currently available of Pipeboard, v" + ltag + ". If you think this is wrong, check your VERSION file and try again.");
                 return;
@@ -221,20 +215,24 @@ xhttp.onreadystatechange = function() {
                 let nextversiondatanum = 0;
                 let currentversiondata = null;
                 let whereinloop = -1;
-                json.forEach(function(i) {
-                    if(i.tag_name == "v" + ltag) {
+
+                json.reverse().forEach(i => {
+                    let ltagx = "v" + ltag;
+                    if(i.tag_name == ltagx) {
                         currentversiondata = i;
-                        nextversiondatanum = whereinloop - 1;
+                        nextversiondatanum = whereinloop + 1;
                     }
 
                     if(whereinloop == nextversiondatanum) {
                         nextversiondata = i;
                     }
+
                     whereinloop = whereinloop + 1;
                 });
 
                 if(nextversiondata !== null) {
                     let ntag = nextversiondata.tag_name;
+                    console.log("NEXT VERSION IS " + ntag);
                     console.log("You are not running the latest version of Pipeboard (" + xtag + "), your on v" + ltag + ".\nWe will run this as many times as there are updates in order, due to restrictions!");
 
                     update_to_next(nextversiondata);
