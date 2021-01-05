@@ -6,16 +6,31 @@ const xhttp = new XMLHttpRequest();
 const http = require("http");
 const fs = require('fs');
 const path = require('path');
+const request = require('request');
+const AdmZip = require('adm-zip');
 
-// get "https://api.github.com/repos/Pipeboard/Pipeboard/releases/latest";
-// get tarball url;
-// clip the "/v" at the end to get the number;
-// check VERSION file for number & compare to ^;
-// if Release version is higher then VERSION file version {
-//     download to ./.temp as ./.temp/example.tar.gz;
-//     unzip to ./.temp/folder
-//     copy all items from ./.temp/folder to ./ and leave files that haven't been in update_exclude_list
-// }
+function get_excluded_update_files() {
+    let strm = fs.readFileSync(path.join(__dirname, "../conf/update_exclude_list"), {encoding: 'utf-8'});
+    let lines = strm.split("\n");
+    let lines2 = [];
+    lines.forEach(function(line) {
+        if(line.startsWith("//")) {
+            return;
+        } else if(line.startsWith("#")) {
+            return;
+        } else {
+            if(line.includes("*")) {
+                let dirformat = path.join(__dirname, "../../" + line.split("*")[0]);
+                fs.readdirSync(dirformat).forEach(function(i) {
+                    lines2.push(dirformat + i);
+                })
+            } else {
+                lines2.push(path.join(__dirname, "../../" + line));
+            }
+        }
+    })
+    return lines2;
+}
 
 function checkifbigger(i1x, i2x) {
     let bigger = i1x;
@@ -85,26 +100,94 @@ function update_to_next(nextversiondata) {
     let ntag = nextversiondata.tag_name;
     let ndlurl = nextversiondata.tarball_url;
 
-    console.log("Updating to version " + ntag.replace("v", "") + " now...");
+    console.log("Preparing for version " + ntag.replace("v", "") + " update...");
 
-    let path2 = path.join(__dirname, '../../.donotusefortesting');
+    let path2 = path.join(__dirname, '../../.donotusefortesting2');
     try {
         if (fs.existsSync(path2)) {
             console.log("Error: This session is used for coding, please clone from GitHub, confirm theres no .donotusefortesting file, then run this command again.");
-        }
-        } catch(err) {
-            var dir = path.join(__dirname, '../../update-temp');
-            if (!fs.existsSync(dir)){
-                fs.mkdirSync(dir);
+        } else {
+            console.log("Preparing to download the update package from the cloud...");
+
+            var dir3 = path.join(__dirname, '../../update-temp');
+            if(!fs.existsSync(dir3)) {
+                fs.mkdirSync(dir3);
             }
 
-            const file = fs.createWriteStream(path.join(__dirname, '../../update-temp/tar.tar.gz'));
-            let request = http.get(nextversiondata.tarball_url, function(response) {
-                response.pipe(file);
+            console.log("Attempting to grab the update package from the cloud...");
+
+            let req = request.get({
+                url: "http://github.com/Pipeboard/Pipeboard/archive/" + ntag + ".zip",
+                headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                }
             });
 
+            let rpipe = req.pipe(fs.createWriteStream(__dirname + "/../../update-temp/" + ntag + ".zip"));
 
+            rpipe.on("open", function() {
+                console.log("The package's host provided a valid archive, downloading...");
+            });
+
+            rpipe.on("close", function() {
+                console.log("Sucessfully downloaded update package from the cloud!");
+                console.log("Atempting to uncompress update package files...");
+                
+                var zipf1 = path.join(__dirname, '/../../update-temp/' + ntag + '.zip');
+                var dir4 = path.join(__dirname, '/../../update-temp/' + ntag + '/');
+                var dir5 = path.join(__dirname, '/../../update-temp/');
+                var dir6 = path.join(__dirname, '/../../update-temp/dl/');
+
+                console.log("Preparing temporary location for update package files...");
+
+                if(!fs.existsSync(dir4)) {
+                    fs.mkdirSync(dir4);
+                } else {
+                    fs.rmdirSync(dir4, {
+                        recursive: true
+                    });
+                    fs.mkdirSync(dir4);
+                }
+
+                console.log("Finish preparing temporary location for update package files!");
+
+                console.log("Preparing temporary location for web download response...");
+
+                if(!fs.existsSync(dir6)) {
+                    fs.mkdirSync(dir6);
+                }
+
+                console.log("Finished preparing temporary location for web download response!");
+
+                console.log("Attempting to write web download to temporary location...");
+                
+                var zip = new AdmZip(zipf1);
+                zip.extractAllTo(dir6, false);
+
+                console.log("Sucessfully wrote web download to temporary location!")
+                console.log("Attempting to extract the update package from the web download...");
+
+                fs.renameSync(dir5 + "/dl/Pipeboard-" + ntag.replace("v", ""), dir5 + ntag);
+                fs.rmdirSync(dir6);
+
+                console.log("Sucessfully extracted the update package from the web download!");
+                console.log("Sucessfully cleaned up temporary web download location!");
+
+                console.log("Duplicating custom & untouchable files into " + ntag + "...");
+
+                let exdf = get_excluded_update_files();
+                exdf.forEach(function(pathi) {
+                    let baseremoverbase = path.join(__dirname, "../../");
+                    let filewithoutbase = pathi.split(baseremoverbase)[1];
+                    let fpwitholdbase = pathi;
+                    let fpwithnewbase = baseremoverbase + "update-temp/" + ntag + "/" + filewithoutbase;
+                    fs.copyFileSync(fpwitholdbase, fpwithnewbase);
+                });
+            });
         }
+    } catch(err) {
+        console.log(err);
+    }
 }
 
 console.log("Attempting to search for new Pipeboard stable releases...");

@@ -38,16 +38,18 @@
   },
   "homepage": "https://pipeboard.org",
   "dependencies": {
+    "adm-zip": "^0.5.1",
     "arg": "^5.0.0",
     "dockerode": "^3.2.1",
     "esm": "^3.2.25",
     "fs": "^0.0.1-security",
-    "http": "^0.0.1-security",
+    "fstream": "^1.0.12",
     "inquirer": "^7.3.3",
     "node-bin-setup": "^1.0.6",
     "node-cmd": "^4.0.0",
     "nodejs": "latest",
     "path": "^0.12.7",
+    "request": "^2.88.2",
     "socket.io": "^3.0.4",
     "xmlhttprequest": "^1.8.0"
   }
