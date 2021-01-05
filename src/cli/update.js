@@ -224,7 +224,7 @@ xhttp.onreadystatechange = function() {
                 json.forEach(function(i) {
                     if(i.tag_name == "v" + ltag) {
                         currentversiondata = i;
-                        nextversiondatanum = whereinloop + 1;
+                        nextversiondatanum = whereinloop + 2;
                     }
 
                     if(whereinloop == nextversiondatanum) {
