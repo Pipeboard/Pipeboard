@@ -4,10 +4,10 @@
   "description": "Pipeboard for NPM! - The best all in one PHP environment manager, web dashboard and app manager software for website development and hosting on terminal platforms.",
   "main": "system/main.js",
   "scripts": {
-    "test": "source ./installers/cli.sh and pipeboard prep and pipeboard run",
-    "postinstall": "source installers/cli.sh",
+    "test": "pipeboard prep and pipeboard run",
+    "postinstall": "source ./installers/cli.sh",
     "start": "pipeboard start",
-    "cli-refresh": "source installers/cli.sh"
+    "cli-refresh": "source ./installers/cli.sh"
   },
   "repository": {
     "type": "git",
