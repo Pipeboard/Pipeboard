@@ -93,12 +93,12 @@ function update_to_next(nextversiondata) {
             console.log("Error: This session is used for coding, please clone from GitHub, confirm theres no .donotusefortesting file, then run this command again.");
         }
         } catch(err) {
-            var dir = path.join(__dirname, '../../.update-temp');
+            var dir = path.join(__dirname, '../../update-temp');
             if (!fs.existsSync(dir)){
                 fs.mkdirSync(dir);
             }
 
-            const file = fs.createWriteStream(path.join(__dirname, '../../.update-temp/tar.tar.gz'));
+            const file = fs.createWriteStream(path.join(__dirname, '../../update-temp/tar.tar.gz'));
             let request = http.get(nextversiondata.tarball_url, function(response) {
                 response.pipe(file);
             });
