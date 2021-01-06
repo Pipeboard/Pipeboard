@@ -11,9 +11,9 @@
 # AUTOMATICALLY ADD ALL FILES INSIDE
 # TO THIS LIST; LIKE BELOW.
 #
-src/web/sites/*
-src/web/panel/css/custom.php
-src/conf/*
+src/win32/web/sites/*
+src/win32/web/panel/css/custom.php
+src/win32/conf/*
 update-temp/*
 #
 # ADD YOUR OWN BELOW THIS LINE
