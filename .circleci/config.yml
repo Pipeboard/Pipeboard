@@ -11,12 +11,9 @@ commands:
       - run: apt-get update
       - run: apt-get install -y wget
       - run: wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
-      - run: source ~/.nvm/nvm.sh
-      - run: source ~/.nvm/bash_completion
+      - run: source /root/.bashrc
       - run: nvm install 12 
-      - run: export PATH=$NODE_DIR:\$PATH" >> $BASH_ENV
       - run: nvm install node
-      - run: npm install
       - run: npm run circleci_test
 workflows:
    version: 2
