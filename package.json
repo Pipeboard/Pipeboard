@@ -4,11 +4,10 @@
   "description": "The best all in one PHP environment manager, web dashboard and app manager software for website development and hosting on terminal platforms.",
   "main": "src/system/main.js",
   "scripts": {
+    "postinstall": "npm link",
     "test": "pipeboard-tester",
     "run": "pipeboard run",
-    "start": "pipeboard run",
-    "circleci_test": "sudo npm link && pipeboard-tester",
-    "travis_test": "npm link && pipeboard-tester"
+    "start": "pipeboard run"
   },
   "bin": {
     "pipeboard": "bin/pipeboard",
