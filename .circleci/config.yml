@@ -9,9 +9,9 @@ commands:
   execute-run:
     steps:
       - run: apt update
-      - run: sudo apt install -y curl
-      - run: curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash
-      - run: sudo apt install -y nodejs
+      - run: apt install -y curl
+      - run: curl -sL https://deb.nodesource.com/setup_14.x | bash
+      - run: apt install -y nodejs
       - run: npm install
       - run: npm run circleci_test
 workflows:
