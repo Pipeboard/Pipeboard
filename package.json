@@ -5,7 +5,7 @@
   "main": "src/system/main.js",
   "dir": "./",
   "scripts": {
-    "postinstall": "npm link | npm i",
+    "postinstall": "npm link",
     "test": "pipeboard-tester",
     "run": "pipeboard run",
     "start": "pipeboard run"
