@@ -5,9 +5,8 @@
   "main": "src/system/main.js",
   "dir": "./",
   "scripts": {
-    "test": "pipeboard prep and pipeboard run",
+    "test": "pipeboard-tester",
     "run": "pipeboard run",
-    "prep": "pipeboard prep",
     "start": "pipeboard run"
   },
   "bin": {
@@ -45,6 +44,7 @@
     "esm": "^3.2.18",
     "fs": "^0.0.1-security",
     "node-bin-setup": "^1.0.6",
+    "node-cmd": "^4.0.0",
     "nodejs": "latest",
     "path": "^0.12.7",
     "request": "^2.88.2",
