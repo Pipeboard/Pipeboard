@@ -7,8 +7,8 @@
     "test": "pipeboard-tester",
     "run": "pipeboard run",
     "start": "pipeboard run",
-    "circleci_test": "npm i | sudo npm link | sudo pipeboard-tester",
-    "travis_test": "npm i | npm link | sudo pipeboard-tester"
+    "circleci_test": "sudo npm link && pipeboard-tester",
+    "travis_test": "npm link && pipeboard-tester"
   },
   "bin": {
     "pipeboard": "bin/pipeboard",
