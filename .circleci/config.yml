@@ -12,7 +12,6 @@ commands:
       - run: apt-get update
       - run: apt-get install -y wget
       - run: wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
-      - run: export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")" [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
       - run: source ~/.bash_profile
       - run: nvm install node
       - run: npm install
