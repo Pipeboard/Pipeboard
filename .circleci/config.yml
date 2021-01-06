@@ -10,7 +10,9 @@ commands:
   prep-test:
     steps:
       - run: apt-get update
-      - run: apt-get install npm nodejs
+      - run: apt-get install npm
+      - run: npm install
+      - run: npm install npm
       - run: npm install
   execute-test:
     steps:
