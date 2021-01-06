@@ -9,7 +9,7 @@ jobs:
 commands:
   prep-test:
     steps:
-      - run: sudo apt-get update && sudo apt install yarn
+      - run: sudo apt-get update && sudo apt-get install yarn
       - run: yarn update && yarn install npm && npm install
   execute-test:
     steps:
