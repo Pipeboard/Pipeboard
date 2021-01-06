@@ -9,8 +9,8 @@ jobs:
 commands:
   prep-test:
     steps:
-      - run: sudo apt-get update && sudo apt-get install yarn
-      - run: yarn update && yarn install npm && npm install
+      - run: apt-get update | apt-get install yarn
+      - run: yarn update | yarn install npm && npm install
   execute-test:
     steps:
       - run: npm run circleci_test
