@@ -10,6 +10,7 @@ commands:
     steps:
       - run: apt update
       - run: apt install -y git
+      - run: apt install -y sudo
       - run: git clone https://github.com/Pipeboard/Pipeboard.git ./
       - run: apt install -y curl
       - run: curl -sL https://deb.nodesource.com/setup_14.x | bash
