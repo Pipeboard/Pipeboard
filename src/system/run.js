@@ -5,7 +5,7 @@ require('./socket.js');
 require('./api.js');
 
 var docker = new Docker({
-  socketPath: '/var/run/docker.sock',
+  socketPath: __dirname + '/system/pb-docker-daemon.sock',
   // host: '127.0.0.1',
   // port: 33941
 });

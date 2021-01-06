@@ -83,7 +83,7 @@ function setup_for_windows() {
         }
     });
 
-    ncmd.runSync("sudo choco install nodejs > /dev/nul | sudo choco install yarn > /dev/nul | sudo choco install npm > /dev/nul | sudo choco install docker > /dev/nul | sudo npm install > /dev/nul");
+    ncmd.runSync("sudo choco install nodejs > /dev/nul | sudo choco install yarn > /dev/nul | sudo choco install npm > /dev/nul | sudo choco install docker-ce > /dev/nul | sudo npm install > /dev/nul");
 
     console.log("All done! Enjoy your windows Pipeboard installation! :) (If you'd like to learn more, checkout docs/explainations/prep-script.html#desktop for information on what just happened.)");
 }
