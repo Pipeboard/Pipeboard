@@ -5,10 +5,12 @@
   "main": "src/system/main.js",
   "dir": "./",
   "scripts": {
-    "postinstall": "su | npm link",
-    "test": "sudo pipeboard-tester",
+    "install": "npm link",
+    "test": "pipeboard-tester",
     "run": "pipeboard run",
-    "start": "pipeboard run"
+    "start": "pipeboard run",
+    "circleci-test": "sudo npm link | sudo pipeboard-tester",
+    "travis-test": "npm link | sudo pipeboard-tester",
   },
   "bin": {
     "pipeboard": "bin/pipeboard",
