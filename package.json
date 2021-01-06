@@ -10,7 +10,7 @@
     "run": "pipeboard run",
     "start": "pipeboard run",
     "circleci-test": "sudo npm link | sudo pipeboard-tester",
-    "travis-test": "npm link | sudo pipeboard-tester",
+    "travis-test": "npm link | sudo pipeboard-tester"
   },
   "bin": {
     "pipeboard": "bin/pipeboard",
