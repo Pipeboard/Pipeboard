@@ -9,13 +9,10 @@ commands:
   execute-run:
     steps:
       - run: apt-get update
-      - run: apt-get install -y wget
-      - run: wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
-      - run: export NVM_DIR="$HOME/.nvm"
-      - run: '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"'
-      - run: '[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"'
-      - run: nvm install 12 
-      - run: nvm install node
+      - run: apt-get install -y curl
+      - run: curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash
+      - run: sudo apt install nodejs
+      - run: npm install
       - run: npm run circleci_test
 workflows:
    version: 2
