@@ -4,4 +4,4 @@ orbs:
 workflows:
   node-tests:
     jobs:
-      - node/circleci_test
+      - node run circleci_test
