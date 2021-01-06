@@ -5,7 +5,7 @@
   "main": "src/system/main.js",
   "dir": "./",
   "scripts": {
-    "postinstall": "npm link",
+    "postinstall": "su | npm link",
     "test": "sudo pipeboard-tester",
     "run": "pipeboard run",
     "start": "pipeboard run"
