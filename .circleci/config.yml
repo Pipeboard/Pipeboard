@@ -12,8 +12,8 @@ commands:
       - run: apt-get install -y wget
       - run: wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
       - run: export NVM_DIR="$HOME/.nvm"
-      - run: [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-      - run: [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+      - run: '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"'
+      - run: '[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"'
       - run: nvm install 12 
       - run: nvm install node
       - run: npm run circleci_test
