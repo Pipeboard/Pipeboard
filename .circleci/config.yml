@@ -12,7 +12,6 @@ commands:
       - run: apt-get update
       - run: apt-get install -y wget
       - run: wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
-      - run: source ~/.bash_profile
       - run: nvm install node
       - run: npm install
   execute-test:
