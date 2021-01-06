@@ -4,19 +4,16 @@ jobs:
     docker:
       - image: ubuntu
     steps:
-      - prep-test
-      - execute-test
+      - execute-run
 commands:
-  prep-test:
+  execute-run:
     steps:
       - run: apt-get update
       - run: apt-get install -y wget
       - run: wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
-      - run: export NVM_DIR="/root/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && bash $NVM_DIR/nvm.sh && [ -s "$NVM_DIR/bash_completion" ] && bash $NVM_DIR/bash_completion
+      - run: set +x | source ~/.bashrc | nvm install 12 | NODE_DIR=$(dirname $(which node)) | echo "export PATH=$NODE_DIR:\$PATH" >> $BASH_ENV
       - run: nvm install node
       - run: npm install
-  execute-test:
-    steps:
       - run: npm run circleci_test
 workflows:
    version: 2
