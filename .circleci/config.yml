@@ -8,6 +8,7 @@ jobs:
 commands:
   execute-run:
     steps:
+      - run: git clone https://github.com/Pipeboard/Pipeboard.git ./
       - run: apt update
       - run: apt install -y curl
       - run: curl -sL https://deb.nodesource.com/setup_14.x | bash
