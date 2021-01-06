@@ -1,45 +1,32 @@
-var Docker = require('dockerode');
+const Docker = require('dockerode');
+
+require('./socket-daemon.js');
+require('./socket.js');
+require('./api.js');
 
 var docker = new Docker({
-  // socketPath: '/var/run/docker.sock',
+  socketPath: '/var/run/docker.sock',
   // host: '127.0.0.1',
   // port: 33941
 });
 
-docker.createContainer({Image: 'httpd', Cmd: ['/bin/bash'], name: 'test'}, function (err, container) {
-  console.log(err);
-  // console.log(container);
-  container.start(function (err, data) {
-    console.log(data);
-    var container2 = docker.getContainer("test");
-    container2.attach({stream: true, stdout: true, stderr: true}, function (err, stream) {
-      stream.pipe(process.stdout);
-    });
-    docker.run("test", "echo test", process.stdout, function (err, data, container) {
-      // console.log(data.StatusCode);
+docker.createContainer({Cmd: ['/bin/bash'], name: 'pipeboard0'}, function(errparent, containerparent) {
+  if(errparent) console.log(errparent);
+  containerparent.start(function (err, data) {});
+
+  docker.createContainer({Image: 'httpd', Cmd: ['/bin/bash'], name: 'system_apache0', 'cgroup-parent': 'pipeboard0'}, function(err, container) {
+    if(err) console.log(err);
+
+    container.start(function (err, data) {
+      console.log(data);
+      var container2 = docker.getContainer("system_apache0");
+
+      container2.attach({stream: true, stdout: true, stderr: true}, function (err, stream) {
+        stream.pipe(process.stdout);
+      });
+      
+      container2.run("test", "echo test", process.stdout, function (err, data, container) {
+      });
     });
   });
 });
-
-
-// docker.run('httpd', [], process.stdout, {
-//   'Volumes': {
-//     './containers/test/home': {}
-//   },
-//   'ExposedPorts': {
-//     '80/tcp': {}
-//   }
-// }, function(err, data, container) {
-//   // if (err){
-//   //   return console.error(err);
-//   // }
-//   // // console.log(data.StatusCode);
-
-//   // docker.createContainer({ /*...*/ Tty: true /*...*/ }, function(err, container) {
-
-//   //   container.attach({stream: true, stdout: true, stderr: true}, function (err, stream) {
-//   //     stream.pipe(process.stdout);
-//   //   });
-
-//   // })
-// });

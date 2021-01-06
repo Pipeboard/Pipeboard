@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  ubuntu:
+    image: ubuntu
+    volumes:
+      - .:/usr/share/
