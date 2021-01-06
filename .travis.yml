@@ -5,6 +5,6 @@ npm: 6.14.10
 os: linux
 dist: xenial
 script:
-  - npm run travis-test
+  - npm run travis_test
 cache:
   npm: false
