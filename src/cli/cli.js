@@ -1,17 +1,15 @@
 import arg from 'arg';
 
-export function cli(args) {
-    console.log("Pipeboard CLI test.");
+let path = require('path');
 
+export function cli(args) {
     args = args.slice(2, args.length);
 
-    console.log(args);
-
     if(args[0] == "prep") {
-        require('./prep.js');
+        require(path.join(__dirname, 'prep.js'));
     } else if(args[0] == "run") {
-        require('../system/main.js');
+        require(path.join(__dirname, '../system/run.js'));
     } else if(args[0] == "update") {
-        require('./update.js');
+        require(path.join(__dirname, 'update.js'));
     }
 }
