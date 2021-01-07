@@ -47,6 +47,7 @@
     "node-cmd": "^4.0.0",
     "nodejs": "latest",
     "path": "^0.12.7",
+    "remove": "^0.1.5",
     "request": "^2.88.2",
     "socket.io": "^3.0.4",
     "xmlhttprequest": "^1.8.0"
