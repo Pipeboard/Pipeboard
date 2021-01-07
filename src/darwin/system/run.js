@@ -4,29 +4,35 @@ require('./socket-daemon.js');
 require('./socket.js');
 require('./api.js');
 
-var docker = new Docker({
-  socketPath: __dirname + '/system/pb-docker-daemon.sock',
-  // host: '127.0.0.1',
-  // port: 33941
-});
+const docker = new Docker();
 
-docker.createContainer({Cmd: ['/bin/bash'], name: 'pipeboard0'}, function(errparent, containerparent) {
-  if(errparent) console.log(errparent);
-  containerparent.start(function (err, data) {});
+docker.listContainers(function(err, data) {
+  if(err) console.log(err);
 
-  docker.createContainer({Image: 'httpd', Cmd: ['/bin/bash'], name: 'system_apache0', 'cgroup-parent': 'pipeboard0'}, function(err, container) {
-    if(err) console.log(err);
+  var parentcontainer = null;
+  var systemcontainer = null;
+  var usercontainers = [];
 
-    container.start(function (err, data) {
-      console.log(data);
-      var container2 = docker.getContainer("system_apache0");
-
-      container2.attach({stream: true, stdout: true, stderr: true}, function (err, stream) {
-        stream.pipe(process.stdout);
-      });
-      
-      container2.run("test", "echo test", process.stdout, function (err, data, container) {
-      });
-    });
+  let datax = JSON.parse(JSON.stringify(data));
+  
+  datax.forEach(function(data2, parentcontainer) {
+    if (data2.Names.includes("/pipeboard")) {
+      parentcontainer = docker.getContainer(data2.Id);
+    }
   });
+
+  if(parentcontainer == null) {
+    docker.createContainer({Cmd: ['/bin/bash'], name: 'pipeboard'}, function(err, container) {
+      if (err) console.log(err);
+      parentcontainer = container;
+      ctnu();
+    });
+  } else {
+    ctnu();
+  }
+
+  function ctnu() {
+      
+  }
+
 });
