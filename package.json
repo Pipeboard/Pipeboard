@@ -32,7 +32,10 @@
     "ubuntu",
     "terminal-app"
   ],
-  "author": "Pipeboard, Inc.",
+  "author": "Pipeboard, Inc. <contact@pipeboard.org> (https://pipeboard.org)",
+  "contributors": [
+    "Nathanna <hello@nathannaofficial.com>"
+  ],
   "license": "CC0-1.0",
   "bugs": {
     "url": "https://github.com/Pipeboard/Pipeboard/issues"

@@ -11,7 +11,7 @@ Establishing connection
 <script>
   const socket = io();
 
-  socket.emit("event", "hello/world");
+  socket.emit("event", "docker/exec/box/test");
 </script>
 
 <?php echo $token; ?>

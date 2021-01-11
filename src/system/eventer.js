@@ -2,7 +2,7 @@ const compose = require("docker-compose");
 const compose_nc = require("docker-compose-nocompose");
 const path = require("path");
 
-exports.run = function(namespacestring) {
+exports.run = function(namespacestring, callback = function(res) {if(res.err) console.log(res.err); }) {
     let namespace = namespacestring.split("/");
 
     if(namespace[0] == "hello" & namespace[1] == "world") {
@@ -28,13 +28,21 @@ exports.run = function(namespacestring) {
             if(namespace[2] == "stopped") compose.rm();
         }
         if(namespace[1] == "exec" && namespace.length == 4) {
-            compose.exec(namespace[2], namespace[3]);
+            compose.exec(namespace[2], namespace[3]).then(
+                () => {
+                    callback(res);
+                }
+            );
         }
         if(namespace[1] == "logs" && namespace.length == 3) {
             compose.logs(namespace[2]);
         }
         if(namespace[1] == "run" && namespace.length == 4) {
-            compose.run(namespace[2], namespace[3]);
+            compose.run(namespace[2], namespace[3]).then(
+                () => {
+                    callback(res);
+                }
+            );
         }
         if(namespace[1] == "build") {
             if(namespace[2] == "all") compose.buildAll();
