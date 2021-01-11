@@ -1,0 +1,3 @@
+function pipeboard() {
+    node ./pipeboard
+}

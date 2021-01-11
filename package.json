@@ -4,7 +4,7 @@
   "description": "The best all in one PHP environment manager, web dashboard and app manager software for website development and hosting on terminal platforms.",
   "main": "src/system/run.js",
   "scripts": {
-    "postinstall": "node src/libs/preprep.js",
+    "postinstall": "node bin/binsetup.js",
     "test": "pipeboard-tester",
     "run": "pipeboard run",
     "start": "pipeboard run",
@@ -60,5 +60,6 @@
     "socket.io": "^3.0.5",
     "socket.io-client": "^3.0.5",
     "xmlhttprequest": "^1.8.0"
-  }
+  },
+  "_id": "pipeboard@0.1.3"
 }
