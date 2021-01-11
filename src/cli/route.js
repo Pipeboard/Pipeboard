@@ -1,1 +1,1 @@
-require(path.join(__dirname, "/" + platform))
+require(path.join(__dirname, "/" + process.platform + "/cli.js"));
