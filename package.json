@@ -7,7 +7,8 @@
     "postinstall": "npm link",
     "test": "npm link && pipeboard-tester",
     "run": "pipeboard run",
-    "start": "pipeboard run"
+    "start": "pipeboard run",
+    "runbeta": "node src/darwin/system/run2.js"
   },
   "bin": {
     "pipeboard": "bin/pipeboard",
@@ -40,16 +41,21 @@
   "dependencies": {
     "adm-zip": "^0.5.1",
     "arg": "^5.0.0",
+    "docker-compose": "^0.23.6",
+    "docker-compose-nocompose": "^0.23.7",
     "dockerode": "^3.2.1",
     "esm": "^3.2.18",
+    "express": "^4.17.1",
     "fs": "^0.0.1-security",
     "node-bin-setup": "^1.0.6",
     "node-cmd": "^4.0.0",
     "nodejs": "latest",
     "path": "^0.12.7",
+    "php": "^1.0.1",
     "remove": "^0.1.5",
     "request": "^2.88.2",
-    "socket.io": "^3.0.4",
+    "socket.io": "^3.0.5",
+    "socket.io-client": "^3.0.5",
     "xmlhttprequest": "^1.8.0"
   }
 }
