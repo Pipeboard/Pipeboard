@@ -1,7 +1,10 @@
 version: '3'
 
 services:
-  ubuntu:
+  system:
+    image: ubuntu
+    container_name: pipeboard_system
+  box:
     image: ubuntu
     volumes:
       - .:/etc/pipeboard
