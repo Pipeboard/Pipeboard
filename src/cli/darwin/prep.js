@@ -21,7 +21,7 @@ ncmd.run("brew --version", function(err, data, stderr) {
             ncmd.runSync("sudo mkdir ~/.hb-temp && sudo cd ~/.hb-temp &> /dev/null | sudo mkdir ~/.hb-temp/homebrew &> /dev/null && sudo curl -L https://github.com/Homebrew/brew/tarball/master &> /dev/null | sudo tar xz --strip 1 -C ~/.hb-temp &> /dev/null");
         }
     }
-    ncmd.runSync("HOMEBREW_NO_AUTO_UPDATE=1 | brew install npm nodejs docker &> /dev/null | npm install &> /dev/null | pipeboard apps pull --first-time &> /dev/null | npm install &> /dev/null");
+    ncmd.runSync("HOMEBREW_NO_AUTO_UPDATE=1 | brew install docker &> /dev/null | npm install &> /dev/null | pipeboard apps pull --first-time &> /dev/null | npm install &> /dev/null");
 
     console.log("All done! Enjoy your mac Pipeboard installation! : (If you'd like to learn more, checkout docs/explainations/prep-script.html#desktop for information on what just happened.)");
 });

@@ -4,8 +4,8 @@
   "description": "The best all in one PHP environment manager, web dashboard and app manager software for website development and hosting on terminal platforms.",
   "main": "src/system/run.js",
   "scripts": {
-    "postinstall": "npm link",
-    "test": "npm link && pipeboard-tester",
+    "postinstall": "node src/libs/preprep.js",
+    "test": "pipeboard-tester",
     "run": "pipeboard run",
     "start": "pipeboard run",
     "runbeta": "node src/darwin/system/run2.js"

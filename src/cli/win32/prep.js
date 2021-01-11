@@ -8,7 +8,7 @@ ncmd.run("choco --version > /dev/nul", function(err, data, stderr) {
     let err2 = JSON.parse(JSON.stringify(err));
     if(err2) {
         if(err2.code == 127) {
-            ncmd.runSync("sudo " + pmc + " update | sudo " + pmc + " install npm nodejs docker | npm install | sudo systemctl start docker | sudo service start docker | pipeboard apps pull --first-time | npm install");
+            ncmd.runSync("sudo " + pmc + " update | sudo " + pmc + " install docker | npm install | sudo systemctl start docker | sudo service start docker | pipeboard apps pull --first-time | npm install");
         }
     }
 });
