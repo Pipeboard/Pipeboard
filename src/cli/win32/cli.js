@@ -8,7 +8,7 @@ export function cli(args1) {
     if(args[0] == "prep") {
         require(path.join(__dirname, 'prep.js'));
     } else if(args[0] == "run") {
-        require(path.join(__dirname, '../system/run.js'));
+        require(path.join(__dirname, '../../system/run.js'));
     } else if(args[0] == "update") {
         require(path.join(__dirname, 'update.js'));
     }
