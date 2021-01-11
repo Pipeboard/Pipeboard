@@ -4,7 +4,7 @@ const path = require('path');
 const ncmd = require('node-cmd');
 
 const eventer = require('./eventer.js');
-const execPHP = require(path.join(__dirname, '../../_external/phpparse/index.js'));
+const execPHP = require(path.join(__dirname, '../libs/phpparse/index.js'));
 
 const app = express();
 const server = require('http').createServer(app);
