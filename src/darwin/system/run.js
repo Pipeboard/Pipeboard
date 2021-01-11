@@ -1,6 +1,5 @@
 const Docker = require('dockerode');
 
-require('./socket-daemon.js');
 require('./socket.js');
 require('./api.js');
 

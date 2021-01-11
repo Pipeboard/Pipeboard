@@ -3,8 +3,9 @@ version: '3'
 services:
   system:
     image: ubuntu
-    container_name: pipeboard_system
+    command: tail -f /dev/null
   box:
     image: ubuntu
     volumes:
       - .:/etc/pipeboard
+    command: tail -f /dev/null
