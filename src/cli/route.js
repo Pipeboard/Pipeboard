@@ -1,0 +1,1 @@
+require(path.join(__dirname, "/" + platform))

@@ -1,9 +1,0 @@
-RewriteEngine on
-
-RewriteRule ^panel/auth/(.*)/(.*) inc/authenticator.php?_user=$1&_pass=$2 [QSA]
-RewriteRule ^panel/auth inc/authenticator.php [QSA]
-
-RewriteRule ^panel/api/(.*) inc/api.php?_url=$1e [QSA]
-
-RewriteRule ^panel/user/(.*) inc/router.php?_url=$1&_admin=false [QSA]
-RewriteRule ^panel/admin/(.*) inc/router.php?_url=$1&_admin=true [QSA]
