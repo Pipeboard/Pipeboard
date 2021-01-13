@@ -3,7 +3,9 @@
     "description": "The best all in one PHP environment manager, web dashboard and app manager software for website development and hosting on terminal platforms.",
     "type": "project",
     "require": {
-        "helloiamlukas/chrome-php": "^2.0"
+        "helloiamlukas/chrome-php": "^2.0",
+        "workerman/phpsocket.io": "^1.1",
+        "wisembly/elephant.io": "^3.3"
     },
     "license": "CC0-1.0",
     "authors": [

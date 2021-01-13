@@ -6,7 +6,7 @@
 # Changelog
 All Pipeboard commits and changes ordered by version and release.
 
-## Version 0.1.1
+## Version 0.1.1 (Pre-Prototype)
 [Initalization](https://github.com/pipeboard/pipeboard/commit/583d26d82ef2d8d8e9a2e61c416d313551fba9d7)<br>
 [New Modules](https://github.com/pipeboard/pipeboard/commit/d8ff704f4eaa60ad027d32dacdbb65a1505bd6b3)<br>
 [Platform Changes](https://github.com/pipeboard/pipeboard/commit/3400019bfb9ff5f99f2ba96ed77249e67632c72a)<br>
@@ -67,11 +67,11 @@ All Pipeboard commits and changes ordered by version and release.
 [RME Formatting](https://github.com/pipeboard/pipeboard/commit/9c1eb6261023b3477ec60d9c674dbc2504758ab4)<br>
 [v0.1.1 Prepare](https://github.com/pipeboard/pipeboard/commit/96e752df5e00c88d5e294191dab5d326fcbe66dc)
 
-## Version 0.1.2
+## Version 0.1.2 (Prototype)
 [Changes*](https://github.com/pipeboard/pipeboard/tree/v0.1.2)<br>
 [Prepare for v0.1.2](https://github.com/pipeboard/pipeboard/commit/ef4541769fe044d5114fac79c889a0e45d19f687)
 
-## Version 0.1.3 (LTS)
+## Version 0.1.3 (Alpha)
 [NPMRC Removal](https://github.com/pipeboard/pipeboard/commit/8dcd9a6ce414a1566e0389f166160774ac4cd98c)<br>
 [Version Number Change](https://github.com/pipeboard/pipeboard/commit/2b6673d8498fcb1b6362d256843b304b22427629)<br>
 [Contributor Changes](https://github.com/pipeboard/pipeboard/commit/68c0ba9ad716222008a76fad4543c34c13e5cbcf)<br>
@@ -124,7 +124,7 @@ All Pipeboard commits and changes ordered by version and release.
 [Removed Update Folder Hiding](https://github.com/pipeboard/pipeboard/commit/a0333301d8fbf695c867f853943d9f494f5ee578)<br>
 [Update Script Changes](https://github.com/pipeboard/pipeboard/commit/bed68ed7208aa84e6c306532d11fa1777663f5ce)<br>
 
-## Version 0.1.4 (Current)
+## Version 0.1.4 (LTS)
 [Bug Fix](https://github.com/pipeboard/pipeboard/commit/a219cd9cf7045c7632f28ab7b4098652b88550f3)<br>
 [Attempted Bug Fix](https://github.com/pipeboard/pipeboard/commit/7370baf1bacaa60acf626921f6f6cbc18e624564)<br>
 [Update update.js](https://github.com/pipeboard/pipeboard/commit/c226fed232f12a01cf1d36e8fa1ca14158a587cc)<br>
@@ -219,3 +219,5 @@ All Pipeboard commits and changes ordered by version and release.
 [Prep Script Changes](https://github.com/pipeboard/pipeboard/commit/b6863bc491fc448c78ee0d88f790e3ff287acd31)<br>
 [Bash Changes](https://github.com/pipeboard/pipeboard/commit/3967a15482dd27f13f73096b739c6de901df21f1)<br>
 [v0.1.3->v0.1.4 Bugs & Stabilization](https://github.com/pipeboard/pipeboard/commit/8da8e85990aa7d9ee9f94c45181c3c8bb4cd8847)<br>
+[Changelog Reorder](https://github.com/Pipeboard/Pipeboard/commit/711ff0e653abc14900b673b4edfcbc0da496e8ca)<br>
+[v0.1.4 Prepare]()

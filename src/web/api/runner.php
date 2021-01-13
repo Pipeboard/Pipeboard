@@ -33,12 +33,6 @@ if($cont->$tkn2 == md5($namespace)):
   const socket = io();
 
   socket.emit("event", "<?php echo $namespace; ?>?<?php echo $sidstamp; ?>");
-  socket.on("event_out", (arg) => {
-    let data = JSON.parse(window.atob(arg));
-    if(data.sid == '<?php echo $sidstamp; ?>') {
-      document.getElementById("out").innerHTML = data.out;
-    }
-  });
 </script>
 </body>
 <?php

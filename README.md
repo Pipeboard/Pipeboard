@@ -92,10 +92,28 @@ Now that you've checked that your system is suported above, you can move forward
 <details>
    <summary>
       <b>
-         <span style="color: orange;">Version 0.1.3</span> - 👎
+         <span style="color: orange;">Version 0.1.4</span> - 👍 
       </b>
       <br>
-      <div width="30px"></div>Unusable (at the moment), WIP
+      <div width="30px"></div>Usable-ish, Work-In-Progress
+   </summary>
+   <br>
+
+   **Npm Registry** - https://npm.com/package/pipeboard-0.1.4<br>
+   **JS Delivr** - https://jsdelivr.com/package/npm/pipeboard-0.1.4<br>
+   **Openbase<span>.</span>io** - https://openbase.io/js/pipeboard-0.1.4<br>
+   **Github** - https://github.com/Pipeboard/Pipeboard/releases/tag/v0.1.4
+
+   *Links may not be active yet!*
+</details>
+
+<details>
+   <summary>
+      <b>
+         <span style="color: pink;">Version 0.1.3</span> - 👎
+      </b>
+      <br>
+      <div width="30px"></div>Unusable, Work-In-Progress
    </summary>
    <br>
 
@@ -103,8 +121,6 @@ Now that you've checked that your system is suported above, you can move forward
    **JS Delivr** - https://jsdelivr.com/package/npm/pipeboard-0.1.3<br>
    **Openbase<span>.</span>io** - https://openbase.io/js/pipeboard-0.1.3<br>
    **Github** - https://github.com/Pipeboard/Pipeboard/releases/tag/v0.1.3
-
-   *Links may not be active yet!*
 </details>
 
 <details>
@@ -157,21 +173,28 @@ If your intrested in becoming a Pipeboard developer, please reach out. We do not
 | --- | --- | --- |
 | Nathanna | [@nathannaofficial](https://github.com/nathannaofficial.com) | Lead Developer & Creator |
 
-## Lisence
-Pipeboard and all official resources are lisenced under CC0-1.0 or "Creative Commons Zero v1.0 Universal". Please see the [LISENCE](LICENSE) file for more details and information.
+## License
+Pipeboard and all official resources are licenced under CC0-1.0 or "Creative Commons Zero v1.0 Universal". Please see the [LICENSE](LICENSE) file for more details and information.
 
 ## Resources
 
 **Website** - https://pipeboard.org<br>
-**Github Page** - https://github.com/Pipeboard<br>
-**Twitter Page** - https://twitter.com/PipeboardProject<br>
-**Facebook Page** - https://facebook.com/Pipeboard-105017771541767<br>
-**NPM Page** - https://npmjs.com/org/pipeboard
+**Github Profile** - https://github.com/Pipeboard<br>
+**Twitter Profile** - https://twitter.com/PipeboardProject<br>
+**Facebook Profile** - https://facebook.com/Pipeboard-105017771541767<br>
+**NPM Profile** - https://npmjs.com/org/pipeboard<br>
+
+**Wiki** - https://github.com/Pipeboard/Pipeboard/wiki<br>
+**ReadMe** - [/README.md](README.md)<br>
+**License** - [/LICENSE](LICENSE)<br>
+**Changelog** - [/CHANGELOG.md](CHANGELOG.md)<br>
+**Package File** - [/package.json](package.json)<br>
 
 ## Repositories
 
-Don't like GitHub? Don't worry, you can find us at other locations too.
+Don't like this website? Don't worry, you can find us at other locations too.
 
+**Github** - https://github.com/Pipeboard/Pipeboard<br>
 **BitBucket** - https://bitbucket.io/Pipeboard/Pipeboard<br>
 **GitLabs** - https://gitlabs.com/Pipeboard/Pipeboard<br>
-**Sourceforge** - https://sourceforge.net/projects/pipeboard<br>
+**Sourceforge** - https://sourceforge.net/projects/Pipeboard<br>
