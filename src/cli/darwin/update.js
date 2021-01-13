@@ -1,5 +1,3 @@
-import arg from 'arg';
-
 let XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
 const xhttp = new XMLHttpRequest();

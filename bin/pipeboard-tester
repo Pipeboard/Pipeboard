@@ -1,3 +1,0 @@
-pipeboard prep
-pipeboard run
-node ../src/libs/tester.js

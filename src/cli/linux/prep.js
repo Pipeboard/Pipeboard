@@ -1,5 +1,3 @@
-import arg from 'arg';
-
 const ncmd = require('node-cmd');
 const fs = require('fs');
 

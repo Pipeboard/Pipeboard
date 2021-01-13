@@ -1,5 +1,3 @@
-import arg from 'arg';
-
 const ncmd = require('node-cmd');
 
 console.log("Downloading and installing dependencies and preperations, this could take a second...");

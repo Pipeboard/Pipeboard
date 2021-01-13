@@ -165,7 +165,7 @@ Pipeboard and all official resources are lisenced under CC0-1.0 or "Creative Com
 **Website** - https://pipeboard.org<br>
 **Github Page** - https://github.com/Pipeboard<br>
 **Twitter Page** - https://twitter.com/PipeboardProject<br>
-Facebook Page - https://facebook.com/Pipeboard-105017771541767<br>
+**Facebook Page** - https://facebook.com/Pipeboard-105017771541767<br>
 **NPM Page** - https://npmjs.com/org/pipeboard
 
 ## Repositories

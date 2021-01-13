@@ -1,8 +1,6 @@
-import arg from 'arg';
-
 let path = require('path');
 
-export function cli(args1) {
+exports.cli = function(args1) {
     let args = args1.slice(2, args1.length);
 
     if(args[0] == "prep") {

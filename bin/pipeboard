@@ -1,6 +1,4 @@
 #!/usr/bin/env node
-
-require = require('esm')(module /*, options*/);
 let path = require('path');
 let platform = process.platform;
 require(path.join(__dirname, '../src/cli/' + process.platform + "/cli.js")).cli(process.argv);

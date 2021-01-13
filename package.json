@@ -4,16 +4,13 @@
   "description": "The best all in one PHP environment manager, web dashboard and app manager software for website development and hosting on terminal platforms.",
   "main": "src/system/run.js",
   "scripts": {
-    "postinstall": "node bin/binsetup.js",
     "test": "pipeboard-tester",
     "run": "pipeboard run",
     "start": "pipeboard run",
     "runbeta": "node src/darwin/system/run2.js"
   },
   "bin": {
-    "pipeboard": "bin/pipeboard",
-    "pipeboard-tester": "bin/pipeboard-tester",
-    "pipeboard-releaser": "bin/pipeboard-releaser"
+    "pipeboard": "bin/pipeboard"
   },
   "repository": {
     "type": "git",
@@ -44,22 +41,21 @@
   "dependencies": {
     "adm-zip": "^0.5.1",
     "arg": "^5.0.0",
+    "atob": "^2.1.2",
+    "btoa": "^1.2.1",
     "docker-compose": "^0.23.6",
     "docker-compose-nocompose": "^0.23.7",
-    "dockerode": "^3.2.1",
     "esm": "^3.2.18",
     "express": "^4.17.1",
     "fs": "^0.0.1-security",
-    "node-bin-setup": "^1.0.6",
     "node-cmd": "^4.0.0",
     "nodejs": "latest",
     "path": "^0.12.7",
     "php": "^1.0.1",
-    "remove": "^0.1.5",
     "request": "^2.88.2",
     "socket.io": "^3.0.5",
     "socket.io-client": "^3.0.5",
-    "xmlhttprequest": "^1.8.0"
-  },
-  "_id": "pipeboard@0.1.3"
+    "xmlhttprequest": "^1.8.0",
+    "zombie": "^6.1.4"
+  }
 }
