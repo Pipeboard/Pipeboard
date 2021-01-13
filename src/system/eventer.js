@@ -16,7 +16,7 @@ function examplecallback(err, sid) {
         "out": err.err
     }
     let datapost = btoa(JSON.stringify(data));
-    hlbrwsr.visit("http://localhost:81/emit?data=" + encodeURI(datapost), function(err, data) {
+    hlbrwsr.visit("http://localhost:81/emit?title=event_out&data=" + encodeURI(datapost), function(err, data) {
         if(err) console.log(err);
     });
 }

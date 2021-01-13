@@ -10,48 +10,52 @@ const execPHP = require(path.join(__dirname, '../libs/phpparse/index.js'));
 
 const app = express();
 const server = require('http').createServer(app);
- 
-app.get('*', (req, res) => {
+server.listen(81);
+const io = require('socket.io')(server);
+
+app.get("*", (req, res) => {
     if(req.url.startsWith("/emit")) {
-        let resdataarchive = req.query.data;
-
-        execPHP.parseFile(path.join(__dirname, '../web/api/broadcast.php'), resdataarchive, function(render) {
-            res.write(render);
+        if(req.query.title == null || req.query.data == null) {
             res.end();
-        });
-    } else if(req.url.startsWith("/run")) {
-        let resdataarchive = {
-            "url": req.url,
-            "params": req.query
+            return;
         }
+        let datapost = btoa(JSON.stringify(req.query));
 
-        let exportstring = JSON.stringify(resdataarchive);
-        exportstring = btoa(exportstring);
-    
-        execPHP.parseFile(path.join(__dirname, '../web/api/runner.php'), exportstring, function(render) {
-            res.write(render);
-            res.end();
+        execPHP.parseFile(path.join(__dirname, '../web/api/broadcast.php'), datapost, function(results) {
+            res.send(results);
         });
+    } else if(req.url.startsWith("/favicon.ico")) {
+        res.sendFile(path.join(__dirname, '../web/api/favicon.png'));
     } else {
-        let resdataarchive = {
-            "url": req.url,
-            "params": req.query
+        let namespace = req.url;
+        if(req.url.includes("?")) {
+            namespace = req.url.split("?")[0];
         }
 
-        let exportstring = JSON.stringify(resdataarchive);
-        exportstring = btoa(exportstring);
+        function makeeventid() {
+            return 'xxxx-yxxxxx-xyxxx-xxxxxy-xxxx'.replace(/[xy]/g, function(c) {
+                var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+                return v.toString(16);
+            }).toUpperCase();
+        }
 
-        execPHP.parseFile(path.join(__dirname, '../web/api/interface.php'), exportstring, function(render) {
-            res.set("Content-Type", 'application/json');
-            res.write(render);
-            res.end();
-        });
+        let sid = makeeventid();
+
+        namespace = namespace.substring(1);
+        namespace2 = namespace;
+        namespace = namespace + "?" + sid;
+
+        if(req.query.token !== null) {
+            // TODO: Check token.
+            
+            console.log("Event '" + sid + "' with '" + namespace2 + "'.");
+            require("./eventer.js").run(namespace);
+        }
+
+        res.end();
     }
 });
-
-server.listen(81);
-
-const io = require('socket.io')(server);
+ 
 io.on('connection', socket => {
     socket.on("event", (arg) => {
         let namespacestring = arg;

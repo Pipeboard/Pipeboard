@@ -1,4 +1,5 @@
 const fs = require('fs');
+const ncmd = require('node-cmd');
 
 exports.parseFile = function(path, exportstring, callback) {
     var exec = require('child_process').exec;
@@ -10,9 +11,13 @@ exports.parseFile = function(path, exportstring, callback) {
 
     fs.writeFileSync(path + ".tmp.php", cont);
     var cmd = 'php ' + path + ".tmp.php";
+
+    function rmthep() {
+        ncmd.runSync("rm -f -r " + path + ".tmp.php");
+    }
     
     exec(cmd, function(error, stdout, stderr) {
         callback(stdout);
-        fs.rmSync(path + ".tmp.php");
+        rmthep();
     });
 }
