@@ -92,32 +92,48 @@ Now that you've checked that your system is suported above, you can move forward
 <details>
    <summary>
       <b>
-         <span style="color: orange;">Version 0.1.4</span> - 👍 
+         <span style="color: orange;">Version 0.1.5 - WIP </span> - 👍 
+      </b>
+      <br>
+      <div width="30px"></div>Usable, Work-In-Progress
+   </summary>
+   <br>
+
+   **Npm Registry** - https://npmjs.com/package/pipeboard-0.1.5<br>
+   **JS Delivr** - https://jsdelivr.com/package/npm/pipeboard-0.1.5<br>
+   **Openbase<span>.</span>io** - https://openbase.io/js/pipeboard-0.1.5<br>
+   **Github** - https://github.com/Pipeboard/Pipeboard/releases/tag/v0.1.5
+   
+   *Links are not active yet!*
+</details>
+
+<details>
+   <summary>
+      <b>
+         <span style="color: orange;">Version 0.1.4</span> - LTS - 👍 
       </b>
       <br>
       <div width="30px"></div>Usable-ish, Work-In-Progress
    </summary>
    <br>
 
-   **Npm Registry** - https://npm.com/package/pipeboard-0.1.4<br>
+   **Npm Registry** - https://npmjs.com/package/pipeboard-0.1.4<br>
    **JS Delivr** - https://jsdelivr.com/package/npm/pipeboard-0.1.4<br>
    **Openbase<span>.</span>io** - https://openbase.io/js/pipeboard-0.1.4<br>
    **Github** - https://github.com/Pipeboard/Pipeboard/releases/tag/v0.1.4
-
-   *Links may not be active yet!*
 </details>
 
 <details>
    <summary>
       <b>
-         <span style="color: pink;">Version 0.1.3</span> - 👎
+         <span style="color: pink;">Version 0.1.3</span> - Prototype Aplha - 👎
       </b>
       <br>
       <div width="30px"></div>Unusable, Work-In-Progress
    </summary>
    <br>
 
-   **Npm Registry** - https://npm.com/package/pipeboard-0.1.3<br>
+   **Npm Registry** - https://npmjs.com/package/pipeboard-0.1.3<br>
    **JS Delivr** - https://jsdelivr.com/package/npm/pipeboard-0.1.3<br>
    **Openbase<span>.</span>io** - https://openbase.io/js/pipeboard-0.1.3<br>
    **Github** - https://github.com/Pipeboard/Pipeboard/releases/tag/v0.1.3
@@ -126,14 +142,14 @@ Now that you've checked that your system is suported above, you can move forward
 <details>
    <summary>
       <b>
-         <span style="color: red;">Version 0.1.2</span> - 👎
+         <span style="color: red;">Version 0.1.2</span> - Prototype - 👎
       </b>
       <br>
       <div width="30px"></div>Unusable, Unfinished
    </summary>
    <br>
 
-   **Npm Registry** - https://npm.com/package/pipeboard-0.1.2<br>
+   **Npm Registry** - https://npm.jscom/package/pipeboard-0.1.2<br>
    **JS Delivr** - https://jsdelivr.com/package/npm/pipeboard-0.1.2<br>
    **Openbase<span>.</span>io** - https://openbase.io/js/pipeboard-0.1.2<br>
    **Github** - https://github.com/Pipeboard/Pipeboard/releases/tag/v0.1.2
@@ -142,14 +158,14 @@ Now that you've checked that your system is suported above, you can move forward
 <details>
    <summary>
       <b>
-         <span style="color: red;">Version 0.1.1</span> - 👎
+         <span style="color: red;">Version 0.1.1</span> - Model - 👎
       </b>
       <br>
       Unusable, Unfinished
    </summary>
    <br>
 
-   **Npm Registry** - https://npm.com/package/pipeboard-0.1.1<br>
+   **Npm Registry** - https://npmjs.com/package/pipeboard-0.1.1<br>
    **JS Delivr** - https://jsdelivr.com/package/npm/pipeboard-0.1.1<br>
    **Openbase<span>.</span>io** - https://openbase.io/js/pipeboard-0.1.1<br>
    **Github** - https://github.com/Pipeboard/Pipeboard/releases/tag/v0.1.1
