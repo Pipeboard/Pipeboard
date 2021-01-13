@@ -220,4 +220,7 @@ All Pipeboard commits and changes ordered by version and release.
 [Bash Changes](https://github.com/pipeboard/pipeboard/commit/3967a15482dd27f13f73096b739c6de901df21f1)<br>
 [v0.1.3->v0.1.4 Bugs & Stabilization](https://github.com/pipeboard/pipeboard/commit/8da8e85990aa7d9ee9f94c45181c3c8bb4cd8847)<br>
 [Changelog Reorder](https://github.com/Pipeboard/Pipeboard/commit/711ff0e653abc14900b673b4edfcbc0da496e8ca)<br>
-[v0.1.4 Prepare]()
+[Bug Fixes](https://github.com/Pipeboard/Pipeboard/commit/502292f0f44490b9667901fddcf95145cac971a0)
+[API Bug Fixes](https://github.com/Pipeboard/Pipeboard/commit/99f6e18db2e41376c5f943891921aceb8ce897cc)
+[v0.1.4 Prepare](https://github.com/Pipeboard/Pipeboard/commit/814bb7a0dda778165c723d34f0d12fae39443c85)
+[Changelog Sync]()
