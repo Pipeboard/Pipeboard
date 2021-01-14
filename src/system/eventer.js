@@ -7,16 +7,17 @@ const hlbrwsr = require('zombie');
 const Path = require("path");
 
 function examplecallback(err, sid) {
-    if(err.exitCode !== 0) { 
-        console.log(err);
-    }
-
     let data = {
         "sid": sid,
-        "out": err.err
+        "out": err
     }
+
+    if(err.exitCode !== 0) { 
+        console.log("Event '" + data.sid + "' resulted in an error! Printing data; " + JSON.stringify(data));
+    }
+
     let datapost = btoa(JSON.stringify(data));
-    hlbrwsr.visit("http://localhost:81/emit?title=event_out&data=" + encodeURI(datapost), function(err, data) {
+    hlbrwsr.visit("http://localhost:81/socket/emit?title=event_out&data=" + encodeURI(datapost), function(err, data) {
         if(err) console.log(err);
     });
 }

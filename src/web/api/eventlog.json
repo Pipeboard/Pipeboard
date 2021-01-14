@@ -1,0 +1,16 @@
+[
+    {
+        "sid": "exampleevent",
+        "namespace": "hello.world",
+        "status": "done",
+        "output": {
+            "error": false,
+            "message": "ran",
+            "exitCode": 0
+        },
+        "consoles": [
+            "Running event 'exampleevent' with namespace of 'docker.up.all'.",
+            "Event 'exampleevent' has finished! Sending response."
+        ]
+    }
+]
