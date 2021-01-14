@@ -2,10 +2,8 @@ version: '3'
 
 services:
   system:
-    image: ubuntu
-    command: tail -f /dev/null
+    image: centos
+    command: sleep infinity
   box:
-    image: ubuntu
-    volumes:
-      - .:/etc/pipeboard
-    command: tail -f /dev/null
+    image: centos
+    command: sleep infinity
