@@ -1,7 +1,11 @@
 {
     "setup": {
         "arguments": 0,
-        "sub_pages": {}
+        "sub_pages": {
+            "setup": {
+                "arguments": 1
+            }
+        }
     },
     "home": {
         "arguments": 0,

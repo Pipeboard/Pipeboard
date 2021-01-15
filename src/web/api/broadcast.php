@@ -3,16 +3,42 @@
 $exs = __EXSTRNG__;
 
 $es = json_decode(base64_decode($exs));
-print_r($es);
+
+$datapack = array(
+  "render" => array(
+    "pg_title" => "Restricted API Page",
+    "pg_baseurl" => "http://localhost/",
+    "include_header" => "true",
+    "include_header_buttons" => "false",
+    "include_sidebar" => "false",
+    "include_footer" => "false",
+    "include_page" => "false"
+  )
+);
+
+require dirname(__DIR__, 1) . "/panel/inc/pages/templates/header.php";
 
 ?>
-<head>
-  <title>/emit - Restricted API Page • Pipeboard</title>
-</head>
-<body>
-<script src="/socket.io/socket.io.js"></script>
+<script src="http://localhost:81/socket.io/socket.io.js"></script>
 <script>
   const socket = io();
   socket.emit("<?php echo $es->title; ?>", '<?php echo $es->data; ?>');
 </script>
-</body>
+<style>
+  .indicator {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 62px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+</style>
+<img class="indicator" src="http://localhost/static/image/check.png">
+<?php
+
+require dirname(__DIR__, 1) . "/panel/inc/pages/templates/footer.php";
+
+?>

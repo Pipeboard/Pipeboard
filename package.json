@@ -1,6 +1,6 @@
 {
   "name": "pipeboard",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "The best all in one PHP environment manager, web dashboard and app manager software for website development and hosting on terminal platforms.",
   "main": "src/system/run.js",
   "scripts": {
@@ -48,6 +48,7 @@
     "esm": "^3.2.18",
     "express": "^4.17.1",
     "fs": "^0.0.1-security",
+    "mmmagic": "^0.5.3",
     "node-cmd": "^4.0.0",
     "nodejs": "latest",
     "path": "^0.12.7",
