@@ -1,0 +1,79 @@
+{
+    "setup": {
+        "arguments": 0,
+        "sub_pages": {}
+    },
+    "home": {
+        "arguments": 0,
+        "sub_pages": {}
+    },
+    "domains": {
+        "arguments": 0,
+        "sub_pages": {
+            "domains": {
+                "arguments": 1
+            },
+            "domains_*_edit": {
+                "arguments": 0
+            },
+            "domains_add": {
+                "arguments": 1
+            }
+        }
+    },
+    "boxes": {
+        "arguments": 0,
+        "sub_pages": {
+            "boxes": {
+                "arguments": 1
+            },
+            "boxes_*_edit": {
+                "arguments": 0
+            },
+            "boxes_create": {
+                "arguments": 0
+            }
+        }
+    },
+    "apache": {
+        "arguments": 0,
+        "sub_pages": {}
+    },
+    "dns": {
+        "sub_pages": {}
+    },
+    "emails": {
+        "arguments": 0,
+        "sub_pages": {}
+    },
+    "mysql": {
+        "arguments": 0,
+        "sub_pages": {
+            "mysql_boxes": {
+                "file": "mysql?open_boxes=1",
+                "arguments": 0
+            },
+            "mysql_boxes_*": {
+                "arguments": 0
+            },
+            "mysql_boxes_*_bases": {
+                "arguments": 0
+            },
+            "mysql_boxes_*_bases_*": {
+                "arguments": 0
+            },
+            "mysql_boxes_*_bases_*_tables": {
+                "arguments": 0
+            },
+            "mysql_boxes_*_bases_*_tables_*": {
+                "arguments": 0
+            },
+            "mysql_boxes_*_bases_*_tables_*_edit": {
+                "arguments": 0
+            },
+            "mysql_boxes_*_bases_*_tables_*_edit_*": {
+                "arguments": 0
+            }
+        }
+    }
+}

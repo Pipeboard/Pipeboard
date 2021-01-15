@@ -10,7 +10,19 @@ const execPHP = require(path.join(__dirname, '../libs/phpparse/index.js'));
 const app = express();
 const server = require('http').createServer(app);
 
-app.get("*", (req, res) => {
+app.get("/favicon.png", (req, res) => {
+    res.setHeader('Content-Type', 'image/png');
+
+    res.end(fs.readFileSync(path.join(__dirname, '../web/favicon.png')));
+});
+
+app.get("/favicon.ico", (req, res) => {
+    res.setHeader('Content-Type', 'image/png');
+
+    res.end(fs.readFileSync(path.join(__dirname, '../web/favicon.ico')));
+});
+
+app.all("*", (req, res) => {
     if(req.url.startsWith("/socket/emit")) {
         res.setHeader('Content-Type', 'text/html');
 
@@ -24,11 +36,6 @@ app.get("*", (req, res) => {
             res.send(results);
         });
 
-        res.end();
-    } else if(req.url.startsWith("/favicon.ico")) {
-        res.setHeader('Content-Type', 'image/png');
-
-        res.sendFile(path.join(__dirname, '../web/api/favicon.png'));
         res.end();
     } else if(req.url.startsWith("/events/run/")) {
         res.setHeader('Content-Type', 'application/json');
@@ -155,6 +162,16 @@ app.get("*", (req, res) => {
         res.end();
     }
 });
+
+app.use(function (req, res, next) {
+    res.setHeader('Content-Type', 'application/json');
+        res.send(JSON.stringify({
+            "results": false,
+            "code": "404",
+            "error": "ENDPOINT_NOT_FOUND"
+        }, null, 2));
+        res.end();
+})
 
 server.listen(81);
 const io = require('socket.io')(server);

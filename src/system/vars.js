@@ -3,11 +3,9 @@ const atob = require('atob');
 const btoa = require('btoa');
 const path = require('path');
 
-let filePath = path.join(__dirname, "var.json");
-
+let filePath = path.join(__dirname, "vars.json");
 let read = fs.readFileSync(filePath, "utf8");
 var vars = JSON.parse(read);
-console.log(vars);
 
 exports.set = function(name, value) {
     vars[name] = value;
