@@ -1,14 +1,19 @@
 const express = require('express');
+const app = express();
 const path = require('path');
 const btoa = require('btoa');
 const fs = require('fs');
 const atob = require('atob');
-
 const eventer = require('./eventer.js');
 const execPHP = require(path.join(__dirname, '../libs/phpparse/index.js'));
-
-const app = express();
 const server = require('http').createServer(app);
+
+function makeeventid() {
+    return 'xxxx-yxxxxx-xyxxx-xxxxxy-xxxx'.replace(/[xy]/g, function(c) {
+        var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+    }).toUpperCase();
+}
 
 app.get("/favicon.png", (req, res) => {
     res.setHeader('Content-Type', 'image/png');
@@ -22,50 +27,45 @@ app.get("/favicon.ico", (req, res) => {
     res.end(fs.readFileSync(path.join(__dirname, '../web/favicon.ico')));
 });
 
-app.all("*", (req, res) => {
-    if(req.url.startsWith("/socket/emit")) {
-        res.setHeader('Content-Type', 'text/html');
+app.get("/socket/emit", (req, res) => {
+    res.setHeader('Content-Type', 'text/html');
 
-        if(req.query.title == null || req.query.data == null) {
-            res.end();
-            return;
-        }
-        let datapost = btoa(JSON.stringify(req.query));
-
-        execPHP.parseFile(path.join(__dirname, '../web/api/broadcast.php'), datapost, function(results) {
-            res.send(results);
-        });
-
+    if(req.query.title == null || req.query.data == null) {
         res.end();
-    } else if(req.url.startsWith("/events/run/")) {
-        res.setHeader('Content-Type', 'application/json');
+        return;
+    }
 
-        let namespace = decodeURI(req.url.substring(11).replace(/\+/g, " "));
-        console.log(namespace);
+    let datapost = btoa(JSON.stringify(req.query));
 
-        if(req.url.includes("?")) {
-            namespace = namespace.split("?")[0];
-        }
+    execPHP.parseFile(path.join(__dirname, '../web/api/broadcast.php'), datapost, function(results) {
+        res.send(results);
+    });
+});
 
-        function makeeventid() {
-            return 'xxxx-yxxxxx-xyxxx-xxxxxy-xxxx'.replace(/[xy]/g, function(c) {
-                var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-                return v.toString(16);
-            }).toUpperCase();
-        }
+app.get("/events/run/*", (req, res) => {
+    res.setHeader('Content-Type', 'application/json');
 
-        let sid = makeeventid();
+    let namespace = decodeURI(req.url.substring(11).replace(/\+/g, " "));
+    console.log(namespace);
 
-        namespace = namespace.substring(1);
-        namespace2 = namespace;
-        namespace = namespace + "?" + sid;
-            
-        console.log("Event '" + sid + "' with '" + namespace2 + "'.");
-        require("./eventer.js").run(namespace);
+    if(req.url.includes("?")) {
+        namespace = namespace.split("?")[0];
+    }
 
-        res.end();
-    } else if(req.url.startsWith("/events/history")) {
-        res.setHeader('Content-Type', 'application/json');
+    let sid = makeeventid();
+
+    namespace = namespace.substring(1);
+    namespace2 = namespace;
+    namespace = namespace + "?" + sid;
+        
+    console.log("Event '" + sid + "' with '" + namespace2 + "'.");
+    require("./eventer.js").run(namespace);
+
+    res.end();
+});
+
+app.get("/events/history", (req, res) => {
+    res.setHeader('Content-Type', 'application/json');
 
         let read = fs.readFileSync(path.join(__dirname, "../web/api/eventlog.json"), "utf8");
         res.send(JSON.stringify({
@@ -75,92 +75,85 @@ app.all("*", (req, res) => {
         }, null, 2));
 
         res.end();
-    } else if(req.url.startsWith("/events/get/")) {
-        res.setHeader('Content-Type', 'application/json');
+});
 
-        let reqsid = req.url.substring(12);
-        if(reqsid.includes("/")) {
-            reqsid = reqsid.split("/")[0];
+app.get("/events/get/*", (req, res) => {
+    res.setHeader('Content-Type', 'application/json');
+
+    let reqsid = req.url.substring(12);
+    if(reqsid.includes("/")) {
+        reqsid = reqsid.split("/")[0];
+    }
+
+    console.log(reqsid);
+    let logpath = path.join(__dirname, "../web/api/eventlog.json");
+    let read = fs.readFileSync(logpath, "utf8");
+    let cont = JSON.parse(read);
+    var found = 0;
+    cont.forEach(function(contr) {
+        if(contr.sid === reqsid) {
+            found = contr;
         }
+    });
 
-        console.log(reqsid);
-        let logpath = path.join(__dirname, "../web/api/eventlog.json");
-        let read = fs.readFileSync(logpath, "utf8");
-        let cont = JSON.parse(read);
-        var found = 0;
-        cont.forEach(function(contr) {
-            if(contr.sid === reqsid) {
-                found = contr;
-            }
-        });
-
-        if(found == 0) {
+    if(found == 0) {
+        res.send(JSON.stringify({
+            "results": false,
+            "code": "204",
+            "error": "EVENT_ID_NOT_FOUND"
+        }, null, 2));
+        res.end();
+    } else {
+        if(req.url.endsWith(reqsid)) {
             res.send(JSON.stringify({
-                "results": false,
-                "code": "204",
-                "error": "EVENT_ID_NOT_FOUND"
+                "results": found,
+                "code": "200",
+                "error": false
             }, null, 2));
             res.end();
         } else {
-            if(req.url.endsWith(reqsid)) {
-                res.send(JSON.stringify({
-                    "results": found,
-                    "code": "200",
-                    "error": false
-                }, null, 2));
-                res.end();
-            } else {
-                let findr = req.url.split("" + reqsid + "/")[1];
-                let reschose = found;
+            let findr = req.url.split("" + reqsid + "/")[1];
+            let reschose = found;
 
-                if(findr.includes("/")) {
-                    let findlist = findr.split("/");
-                    findlist.forEach(function(findx) {
-                        if(reschose !== undefined) {
-                            if(reschose[findx] !== undefined) {
-                                reschose = reschose[findx];
-                            } else {
-                                reschose = undefined;
-                                return;
-                            }
+            if(findr.includes("/")) {
+                let findlist = findr.split("/");
+                findlist.forEach(function(findx) {
+                    if(reschose !== undefined) {
+                        if(reschose[findx] !== undefined) {
+                            reschose = reschose[findx];
                         } else {
                             reschose = undefined;
                             return;
                         }
-                    });
-                } else {
-                    reschose = found[findr];
-                }
+                    } else {
+                        reschose = undefined;
+                        return;
+                    }
+                });
+            } else {
+                reschose = found[findr];
+            }
 
-                if(reschose !== undefined) {
-                    res.send(JSON.stringify({
-                        "results": reschose,
-                        "code": "200",
-                        "error": false
-                    }, null, 2))
-                } else {
-                    res.send(JSON.stringify({
-                        "results": false,
-                        "code": "206",
-                        "error": "SUB_OBJECT_NOT_FOUND"
-                    }, null, 2));
-                    res.end();
-                }
+            if(reschose !== undefined) {
+                res.send(JSON.stringify({
+                    "results": reschose,
+                    "code": "200",
+                    "error": false
+                }, null, 2))
+            } else {
+                res.send(JSON.stringify({
+                    "results": false,
+                    "code": "206",
+                    "error": "SUB_OBJECT_NOT_FOUND"
+                }, null, 2));
                 res.end();
             }
             res.end();
         }
-
-        res.end();
-    } else {
-        res.setHeader('Content-Type', 'application/json');
-        res.send(JSON.stringify({
-            "results": false,
-            "code": "404",
-            "error": "ENDPOINT_NOT_FOUND"
-        }, null, 2));
         res.end();
     }
+
+    res.end();
 });
 
 app.use(function (req, res, next) {
@@ -185,6 +178,12 @@ io.on('connection', socket => {
         if(namespacestring.includes("?")) {
             sid = namespacestring.split("?")[1];
             namespace = namespacestring.split("?")[0].split(".");
+        }
+
+        console.log(sid);
+
+        if(sid == null) {
+            sid = makeeventid();
         }
 
         console.log("Event '" + sid + "' now executing with namespace '" + namespacestring + "'.");

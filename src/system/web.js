@@ -5,6 +5,7 @@ const atob = require('atob')
 const phpparse = require(path.join(__dirname, '../libs/phpparse/index.js'));
 const vars = require('./vars.js')
 const fs = require('fs');
+const mimelu = require('mime-types')
 
 const eventer = require('./eventer.js');
 const execPHP = require(path.join(__dirname, '../libs/phpparse/index.js'));
@@ -25,6 +26,8 @@ app.get("/favicon.ico", (req, res) => {
 });
 
 app.get("/static/css/*", (req, res) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+
     let datapost = btoa(JSON.stringify({
         "url": req.url,
         "query": req.query,
@@ -39,7 +42,8 @@ app.get("/static/css/*", (req, res) => {
         wanted = wanted.split(".css")[0];
     }
 
-    if(!fs.existsSync(path.join(__dirname, '../web/panel/css/' + wanted + '.php'))) {
+    if(!fs.existsSync(path.join(__dirname, '../web/panel/assets/css/' + wanted + '.php'))) {
+        res.status(404);
         res.setHeader('Content-Type', 'text/json');
         res.send(JSON.stringify({
             "code": "404",
@@ -47,7 +51,7 @@ app.get("/static/css/*", (req, res) => {
         }, null, 2));
         res.end();
     } else {
-        phpparse.parseFile(path.join(__dirname, '../web/panel/css/' + wanted + '.php'), datapost, function(output) {
+        phpparse.parseFile(path.join(__dirname, '../web/panel/assets/css/' + wanted + '.php'), datapost, function(output) {
             res.setHeader('Content-Type', 'text/css');
             res.send(output);
             res.end();
@@ -56,12 +60,15 @@ app.get("/static/css/*", (req, res) => {
 });
 
 app.get("/static/image/*", (req, res) => {
-    let wanted = req.url.substring(12);
+    res.setHeader('Access-Control-Allow-Origin', '*');
+
+    let wanted = req.url.substring(14);
     if(wanted.includes("?")) {
         wanted = wanted.split("?")[0];
     }
 
-    if(!fs.existsSync(path.join(__dirname, '../web/panel/css/' + wanted))) {
+    if(!fs.existsSync(path.join(__dirname, '../web/panel/assets/images/' + wanted))) {
+        res.status(404);
         res.setHeader('Content-Type', 'text/json');
         res.send(JSON.stringify({
             "code": "404",
@@ -70,7 +77,55 @@ app.get("/static/image/*", (req, res) => {
         res.end();
     } else {
         res.setHeader('Content-Type', 'image/png');
-        res.send(fs.readFileSync(path.join(__dirname, '../web/panel/css/' + wanted)));
+        res.send(fs.readFileSync(path.join(__dirname, '../web/panel/assets/images/' + wanted)));
+        res.end();
+    }
+});
+
+app.get("/static/font/*", (req, res) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+
+    let wanted = req.url.substring(13);
+    if(wanted.includes("?")) {
+        wanted = wanted.split("?")[0];
+    }
+
+    let filePath = path.join(__dirname, '../web/panel/assets/fonts/files/' + wanted);
+    if(!fs.existsSync(filePath)) {
+        res.status(404);
+        res.setHeader('Content-Type', 'text/json');
+        res.send(JSON.stringify({
+            "code": "404",
+            "error": "FONT_FILE_NOT_FOUND"
+        }, null, 2));
+        res.end();
+    } else {
+        let result = mimelu.lookup(wanted);
+        res.setHeader('Content-Type', result)
+        res.send(fs.readFileSync(filePath));
+        res.end();
+    }
+});
+
+app.get("/static/fonts/*", (req, res) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    
+    let wanted = req.url.substring(14);
+    if(wanted.includes("?")) {
+        wanted = wanted.split("?")[0];
+    }
+
+    if(!fs.existsSync(path.join(__dirname, '../web/panel/assets/fonts/' + wanted + ".css"))) {
+        res.status(404);
+        res.setHeader('Content-Type', 'text/json');
+        res.send(JSON.stringify({
+            "code": "404",
+            "error": "FONT_STYLESHEET_NOT_FOUND"
+        }, null, 2));
+        res.end();
+    } else {
+        res.setHeader('Content-Type', 'text/css');
+        res.send(fs.readFileSync(path.join(__dirname, '../web/panel/assets/fonts/' + wanted + ".css")));
         res.end();
     }
 });
