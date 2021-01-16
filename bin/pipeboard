@@ -1,4 +1,4 @@
 #!/usr/bin/env node
 let path = require('path');
 let platform = process.platform;
-require(path.join(__dirname, '../src/cli/' + process.platform + "/cli.js")).cli(process.argv);
+require(path.join(__dirname, '../src/cli/cli.js')).cli(process.argv);

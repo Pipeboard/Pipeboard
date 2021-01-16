@@ -2,7 +2,7 @@
   "name": "pipeboard",
   "version": "0.1.5",
   "description": "The best all in one PHP environment manager, web dashboard and app manager software for website development and hosting on terminal platforms.",
-  "main": "src/system/run.js",
+  "main": "src/system/runner.js",
   "scripts": {
     "test": "pipeboard prep && pipeboard test",
     "run": "pipeboard run",
