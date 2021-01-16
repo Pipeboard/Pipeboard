@@ -1,5 +1,7 @@
 <?php
 
+$unx = time();
+
 function str_starts_with( $haystack, $needle ) {
     $length = strlen( $needle );
     return substr( $haystack, 0, $length ) === $needle;
@@ -47,10 +49,8 @@ if(!isset($goto)) {
     }
 
     $scape = explode("/", $goto);
-
     $tree = file_get_contents(__DIR__ . "/pages/tree.json");
     $tree = json_decode($tree);
-
     $pg = "404";
 
     foreach ($tree as $branch_name => $branch_contents) {
@@ -73,9 +73,8 @@ if(!isset($goto)) {
                                 $farth = -1;
                                 $sofaryes = true;
                                 $scape2 = $scape;
-
+                                
                                 if((count($subpage_name_array) + intval($subpage_contents->arguments)) == count($scape)) {
-
                                     foreach($subpage_name_array as $subpage_subname) {
                                         if($sofaryes == true) {
                                             $farth = $farth + 1;
@@ -128,33 +127,52 @@ if(!isset($goto)) {
     );
 
     $regpgcont = file_get_contents(__DIR__ . '/pages/' . $pg . ".php");
-    $rndrmta = explode("<render-meta>\n", $regpgcont)[1];
-    $rndrmta = explode("\n</render-meta>", $rndrmta)[0];
+    if(strpos($regpgcont, "<render-meta>") !== false) {
+        $rndrmta = explode("<render-meta>", $regpgcont)[1];
+        $rndrmta = explode("</render-meta>", $rndrmta)[0];
 
-    $renderxml = "<?xml version=\"1.0\" ?> 
-<document>
-" . $rndrmta . "
-</document>
+        $renderxml = "<?xml version=\"1.0\" ?> 
+<document>" . str_replace("    ", "", str_replace("\n", "", $rndrmta)) . "</document>
 ";
-    $renderxml = simplexml_load_string($renderxml);
-    $renderxml_fu = array();
+        $renderxml = simplexml_load_string($renderxml);
+        $renderxml_fu = array();
 
-    foreach($renderxml as $key => $val) {
-        $key = str_replace("-", "_", $key);
-        $renderxml_fu[$key] = $val[0];
+        foreach($renderxml as $key => $val) {
+            $key = str_replace("-", "_", $key);
+            $renderxml_fu[$key] = $val[0];
+        }
+
+        $datapack["render"] = $renderxml_fu;
+    
     }
+    $newpreg = preg_replace("/<render-meta>(?s)(.*)(?s)<\/render-meta>/", "", $regpgcont);
+    if(strpos($regpgcont, "<head>") !== false) {
+        $headinject = explode("<head>", $newpreg)[1];
+        $headinject = explode("</head>", $headinject)[0];
 
-    $datapack = $prevdata;
-    $datapack["render"] = $renderxml_fu;
-
-    $newpreg = preg_replace("/(?s)<render-meta>(?s)(.*)<\/render-meta>\n/", '', $regpgcont);
-    $unx = time();
-    file_put_contents(__DIR__ . '/preg-' . $unx . '.tmp.php', $newpreg);
+        $headinject = "<!--\n\nPAGE INJECTION\nThe content from the <head> tag\nin the requested page.\n\n-->\n" . $headinject;
+    }
+    if(strpos($regpgcont, "<title>") !== false) {
+        $titlefound = explode("<title>", $newpreg)[1];
+        $titlefound = explode("</title>", $titlefound)[0];
+        $datapack["render"]["pg_title"] = $titlefound;
+        $newpreg = preg_replace("/<title>(?s)(.*)(?s)<\/title>/", '', $newpreg);
+    }
+    $newpreg = preg_replace("/<head>(?s)(.*)(?s)<\/head>/", '', $newpreg);
+    if(strpos($regpgcont, "<footer>") !== false) {
+        $footerinject = explode("<footer>", $newpreg)[1];
+        $footerinject = explode("</footer>", $footerinject)[0];
+        $footerinject = "<!--\n\nPAGE INJECTION\nThe content from the <footer> tag\nin the requested page.\n\n-->\n" . $footerinject;
+    }
+    $newpreg = preg_replace("/<footer>(?s)(.*)(?s)<\/footer>/", '', $newpreg);
+    $newpreg = str_replace("<body>", "", $newpreg);
+    $newpreg = str_replace("</body>", "", $newpreg);
 
     require __DIR__ . '/pages/templates/header.php';
+    file_put_contents(__DIR__ . '/preg-' . $unx . '.tmp.php', $newpreg);
     require __DIR__ . '/preg-' . $unx . '.tmp.php';
-    require __DIR__ . '/pages/templates/footer.php';
-
     unlink(__DIR__ . '/preg-' . $unx . '.tmp.php');
+    require __DIR__ . '/pages/templates/footer.php';
 }
 ?>
+e

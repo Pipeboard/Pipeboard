@@ -1,9 +1,13 @@
 <?php
-
 $psysname = "Pipeboard";
 $title = "Pipeboard...";
 $desc = "No description set for this page.";
 $Keywords = "pipeboard, system, panel, containers, website";
+$db2 = $datapack["render"];
+foreach($datapack["render"] as $key => $val) {
+    $db2[$key] = str_replace("\n", "", $val);
+}
+$datapack["render"] = $db2;
 
 if(isset($datapack)) {
     $title = $datapack["ogUrl"] . " • " . $psysname;
@@ -12,37 +16,40 @@ if(isset($datapack)) {
     if($datapack["render"]["pg_desc"] !== null) $desc = $datapack["render"]["pg_desc"];
     if($datapack["render"]["pg_crumbs"] !== null) $crumbs_raw = $datapack["render"]["pg_crumbs"];
     if($datapack["render"]["pg_baseurl"] !== null) $custombase = $datapack["render"]["pg_baseurl"];
-
     if($datapack["render"]["include_header"] !== null) $headertoggle = $datapack["render"]["include_header"];
     if($datapack["render"]["include_header_buttons"] !== null) $includeheaderbuttons = $datapack["render"]["include_header_buttons"];
     if($datapack["render"]["include_meta"] !== null) $includemeta = $datapack["render"]["include_meta"];
     if($datapack["render"]["include_footer"] !== null) $footertoggle = $datapack["render"]["include_footer"];
     if($datapack["render"]["include_sidebar"] !== null) $sidebartoggle = $datapack["render"]["include_sidebar"];
     if($datapack["render"]["include_page"] !== null) $togglepagecontrollers = $datapack["render"]["include_page"];
-
-    if($datapack["render"]["load_stylesheets"] !== null) $includegeneralstylesheets = $datapack["render"]["include_general_stylesheets"];
+    if($datapack["render"]["load_stylesheets"] !== null) $includegeneralstylesheets = $datapack["render"]["load_stylesheets"];
     if($datapack["render"]["load_fonts"] !== null) $loadfonts = $datapack["render"]["load_fonts"];
+    if($datapack["render"]["load_bootstrap"] !== null) $loadfonts = $datapack["render"]["load_bootstrap"];
 
     if($datapack["render"]["requires_auth"] !== null) {
-        // $tok = $datapack"]["session"]["auth"]["alive-token;
-        // $apireqcont = json_decode(file_get_contents("http://localhost:81/sessions/check/alive-token?data=" . $tok . "&token=" . $system_api_key));
-        // if($apireqcont"]["code !== 200) {
-        //     throw "API Request Went Wrong: " . $apireqcont"]["error;
-        // }
-        // $check = $apireqcont"]["results;
-        $check = true;
-        if($check == true) {
+        if($datapack["render"]["requires_auth"] == "yes") {
+            // $tok = $datapack"]["session"]["auth"]["alive-token;
+            // $apireqcont = json_decode(file_get_contents("http://localhost:81/sessions/check/alive-token?data=" . $tok . "&token=" . $system_api_key));
+            // if($apireqcont"]["code !== 200) {
+            //     throw "API Request Went Wrong: " . $apireqcont"]["error;
+            // }
+            // $check = $apireqcont"]["results;
+            $check = true;
+            if($check == true) {
 
+            }
         }
     }
     if($datapack["render"]["require_login"] !== null) {
-        // $lastpassforuser = "last_login_stamp:" . $datapack["session"]["user"]["id"];
-        // $check = if(!$es["envs"]["$lastpassforuser > strtotime("-10 minutes"));
-        $check = true;
-        if($check == false) {
-            header("Location: /accounts/auth/password-check/" . $datapack["session"]["user"]["id"]);
-        } else {
-            echo "<script>console.log('%cPIPEBOARD', 'font-weight: bold; color: #d4966a;', '•', 'User was prompted for login, but they were prompted less than ten minutes ago! Voied and continiuing session.');</script>\n";
+        if($datapack["render"]["require_login"] == "yes") {
+            // $lastpassforuser = "last_login_stamp:" . $datapack["session"]["user"]["id"];
+            // $check = if(!$es["envs"]["$lastpassforuser > strtotime("-10 minutes"));
+            $check = true;
+            if($check == false) {
+                header("Location: /accounts/auth/password-check/" . $datapack["session"]["user"]["id"]);
+            } else {
+                echo "<script>console.log('%cPIPEBOARD', 'font-weight: bold; color: #d4966a;', '•', 'User was prompted for login, but they were prompted less than ten minutes ago! Voied and continiuing session.');</script>\n";
+            }
         }
     }
 
@@ -54,7 +61,6 @@ if(isset($datapack)) {
         foreach($crumbarray as $crumbi) {
             $farth = $farth + 1;
             $crumbaddprops = "";
-
             $crumbto = null;
 
             if(strpos($crumbi, "[") !== false) {
@@ -86,8 +92,7 @@ if(isset($datapack)) {
 <html>
 <head>
     <title><?php echo $title; ?></title>
-
-    <?php if ($includemeta !== "false"): ?>
+    <?php if ($includemeta !== "no"): ?>
     <meta name="title" content="<?php echo $title; ?>">
     <meta name="description" content="<?php echo $desc; ?>">
     <meta name="keywords" content="<?php echo $keywords; ?>">
@@ -96,28 +101,29 @@ if(isset($datapack)) {
     <meta name="language" content="English">
     <meta name="author" content="Pipeboard, Inc.">
     <?php endif; ?>
-
     <?php if ($custombase !== null): ?>
     <base href="<?php echo $custombase; ?>">
     <?php endif; ?>
-    
-    <?php if($loadfonts !== "false"): ?>
+    <?php if($loadfonts !== "no"): ?>
     <link rel="stylesheet" href="/static/fonts/MuseoSans">
     <?php endif; ?>
-    
-    <?php if ($includegeneralstylesheets !== "false"): ?>
+    <?php if ($includegeneralstylesheets !== "no"): ?>
     <link rel="stylesheet" href="/static/css/modules/header.css">
     <link rel="stylesheet" href="/static/css/modules/sidebar.css">
     <link rel="stylesheet" href="/static/css/modules/_general.css">
     <link rel="stylesheet" href="/static/css/modules/footer.css">
     <link rel="stylesheet" href="/static/css/themes/_common.css">
     <link rel="stylesheet" href="/static/css/custom.css">
+    <?php if($load_material == "yes"): ?>
+    <link rel="stylesheet" href="/static/css/material.css">
+    <script src="/static/js/material.js"></script>
     <?php endif; ?>
+    <?php endif; echo $headinject; ?>
 </head>
 <body>
-    <?php if($headertoggle !== "false"): ?>
+    <?php if($headertoggle !== "no"): ?>
     <div id="page_header" class="page_header">
-    <?php if($includeheaderbuttons == "false"): ?>
+    <?php if($includeheaderbuttons == "no"): ?>
         <div class="pb_logo center_pb_logo">
             <img class="logo_img" src="/favicon.png" alt/title="Pipeboard Logo">
         </div>
@@ -128,13 +134,11 @@ if(isset($datapack)) {
     <?php endif; ?>
     </div>
     <?php endif; ?>
-
-    <?php if($sidebartoggle !== "false") include 'sidebar.php'; ?>
-    
-    <?php if($togglepagecontrollers !== "false"): ?>
+    <?php if($sidebartoggle !== "no") include 'sidebar.php'; ?>
+    <?php if($togglepagecontrollers !== "no"): ?>
     <div id="page" class="page">
         <div id="page_titlecard" class="page_titlecard">
-            <?php if(!$justusecrumbs == "true"): ?>
+            <?php if($justusecrumbs !== "yes"): ?>
             <p class="title">
                 <?php echo $datapack["render"]["pg_title"]; ?>
             </p>

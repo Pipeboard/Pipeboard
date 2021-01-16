@@ -4,6 +4,6 @@
 <?php if(!$footertoggle == "false"): ?>
 <div id="page_footer" class="page_footer">
 </div>
-<?php endif; ?>
+<?php endif; echo $footerinject;?>
 </body>
 </html>
