@@ -1,23 +1,19 @@
 <?php
-
 $exs = __EXSTRNG__;
-
 $es = json_decode(base64_decode($exs));
 
 $datapack = array(
   "render" => array(
     "pg_title" => "Restricted API Page",
     "pg_baseurl" => "http://localhost/",
-    "include_header" => "true",
-    "include_header_buttons" => "false",
-    "include_sidebar" => "false",
-    "include_footer" => "false",
-    "include_page" => "false"
+    "include_header" => "yes",
+    "include_header_buttons" => "no",
+    "include_sidebar" => "no",
+    "include_footer" => "no",
+    "include_page" => "no"
   )
 );
-
 require dirname(__DIR__, 1) . "/panel/inc/pages/templates/header.php";
-
 ?>
 <script src="http://localhost:81/socket.io/socket.io.js"></script>
 <script>
@@ -38,7 +34,5 @@ require dirname(__DIR__, 1) . "/panel/inc/pages/templates/header.php";
 </style>
 <img class="indicator" src="http://localhost/static/image/check.png">
 <?php
-
 require dirname(__DIR__, 1) . "/panel/inc/pages/templates/footer.php";
-
 ?>
