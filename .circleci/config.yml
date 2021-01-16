@@ -1,24 +1,24 @@
 version: 2.1
 jobs:
-  run-test:
+  test:
     docker:
-      - image: ubuntu
+      - image: ubuntu:18.04
     steps:
       - execute-run
 commands:
   execute-run:
     steps:
-      - run: apt update
-      - run: apt install -y git
-      - run: apt install -y sudo
-      - run: git clone https://github.com/Pipeboard/Pipeboard.git ./
-      - run: apt install -y curl
-      - run: curl -sL https://deb.nodesource.com/setup_14.x | bash
-      - run: apt install -y nodejs
-      - run: npm install
-      - run: npm run run
+      - run: cd /root/project
+      - run: export DEBIAN_FRONTEND=noninteractive
+      - run: apt update && DEBIAN_FRONTEND=noninteractive apt install -y --no-install-recommends sudo curl ca-certificates
+      - run: sudo curl -sL http://deb.nodesource.com/setup_14.x | sudo bash -
+      - run: apt-get install -y --no-install-recommends nodejs git
+      - run: git config --global url.git://github.com/.insteadOf https://github.com/ && git clone --single-branch --branch "dev-citesting" https://github.com/Pipeboard/Pipeboard.git /root/project
+      - run: ls /root/project
+      - run: npm install -g .
+      - run: pipeboard prep && pipeboard run --close-after 5
 workflows:
    version: 2
    test:
      jobs:
-       - run-test
+       - test

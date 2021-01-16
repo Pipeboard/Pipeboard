@@ -5,6 +5,7 @@ npm: 6.14.10
 os: linux
 dist: xenial
 script:
+  - npm install -g .
   - npm run test
 cache:
   npm: false

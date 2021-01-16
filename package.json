@@ -2,7 +2,7 @@
   "name": "pipeboard",
   "version": "0.1.5",
   "description": "The best all in one PHP environment manager, web dashboard and app manager software for website development and hosting on terminal platforms.",
-  "main": "src/system/run.js",
+  "main": "src/system/runner.js",
   "scripts": {
     "test": "pipeboard prep && pipeboard test",
     "run": "pipeboard run",
@@ -39,23 +39,17 @@
   },
   "homepage": "https://pipeboard.org",
   "dependencies": {
-    "adm-zip": "^0.5.1",
-    "arg": "^5.0.0",
     "atob": "^2.1.2",
     "btoa": "^1.2.1",
     "docker-compose": "^0.23.6",
     "docker-compose-nocompose": "^0.23.7",
-    "esm": "^3.2.18",
     "express": "^4.17.1",
     "fs": "^0.0.1-security",
-    "mmmagic": "^0.5.3",
     "node-cmd": "^4.0.0",
     "nodejs": "latest",
     "path": "^0.12.7",
-    "php": "^1.0.1",
     "request": "^2.88.2",
     "socket.io": "^3.0.5",
-    "socket.io-client": "^3.0.5",
     "xmlhttprequest": "^1.8.0",
     "zombie": "^6.1.4"
   }

@@ -4,6 +4,9 @@ const btoa = require('btoa');
 const path = require('path');
 
 let filePath = path.join(__dirname, "vars.json");
+if(!fs.existsSync(filePath)) {
+    fs.writeFileSync(filePath, "{\n}");
+}
 let read = fs.readFileSync(filePath, "utf8");
 var vars = JSON.parse(read);
 
