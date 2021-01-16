@@ -13,7 +13,7 @@ commands:
       - run: apt update && DEBIAN_FRONTEND=noninteractive apt install -y --no-install-recommends sudo curl ca-certificates
       - run: sudo curl -sL http://deb.nodesource.com/setup_14.x | sudo bash -
       - run: apt-get install -y --no-install-recommends nodejs git
-      - run: git config --global url.git://github.com/.insteadOf https://github.com/ && git clone --single-branch --branch "dev-citesting" https://github.com/Pipeboard/Pipeboard.git /root/project
+      - run: git config --global url.git://github.com/.insteadOf https://github.com/ && git clone https://github.com/Pipeboard/Pipeboard.git /root/project
       - run: ls /root/project
       - run: npm install -g .
       - run: pipeboard prep && pipeboard run --close-after 5
