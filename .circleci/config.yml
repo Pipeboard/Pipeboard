@@ -14,7 +14,8 @@ commands:
       - run: apt-get install -y --no-install-recommends nodejs
       - run: git config --global url.git://github.com/.insteadOf https://github.com/
       - run: git clone https://github.com/Pipeboard/Pipeboard.git ./
-      - run: npm install -g . | npm run run
+      - run: npm install -g .
+      - run: npm run run
 workflows:
    version: 2
    test:
