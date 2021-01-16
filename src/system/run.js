@@ -4,14 +4,18 @@ const path = require("path");
 const eventer = require("./eventer.js");
 const vrm = require('./vars.js');
 
-modules.run = function() {
+exports.run = function() {
     require('./api.js');
     require('./web.js');
 
     process.stdin.resume();
 }
 
-modules.runClose = function(after) {
+exports.runClose = function(after) {
     require('./api.js');
     require('./web.js');
+
+    setTimeout((function() {
+        return process.exit(0);
+    }), parseInt(after) * 1000);
 }
