@@ -14,11 +14,15 @@ jobs:
         node-version: [14.x]
     steps:
     - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Add Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: sudo npm ci
-    - run: sudo npm install -g .
-    - run: sudo pipeboard prep
-    - run: sudo pipeboard run --close-after 5
+    - name: Initalize NPM
+      run: sudo npm ci
+    - name: Register Pipeboard Commands
+      run: sudo npm install -g .
+    - name: Prepare Pipeboard
+      run: sudo pipeboard prep
+    - name: Test Pipeboard
+      run: sudo pipeboard run --close-after 5
