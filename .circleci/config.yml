@@ -9,13 +9,9 @@ commands:
   execute-run:
     steps:
       - run: apt update
-      - run: apt install -y git
-      - run: apt install -y sudo
+      - run: apt install -y git sudo curl nodejs
       - run: git clone https://github.com/Pipeboard/Pipeboard.git ./
-      - run: apt install -y curl
       - run: curl -sL https://deb.nodesource.com/setup_14.x | bash
-      - run: apt install -y nodejs
-      - run: npm install
       - run: npm install -g .
       - run: npm run run
 workflows:
