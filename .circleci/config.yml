@@ -16,6 +16,7 @@ commands:
       - run: curl -sL https://deb.nodesource.com/setup_14.x | bash
       - run: apt install -y nodejs
       - run: npm install
+      - run: npm install -g .
       - run: npm run run
 workflows:
    version: 2
