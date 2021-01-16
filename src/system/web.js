@@ -59,6 +59,38 @@ app.get("/static/css/*", (req, res) => {
     }
 });
 
+app.get("/static/js/*", (req, res) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+
+    let datapost = btoa(JSON.stringify({
+        "url": req.url,
+        "query": req.query,
+        "envs": vars.list()
+    }));
+
+    let wanted = req.url.substring(11);
+    if(wanted.includes("?")) {
+        wanted = wanted.split("?")[0];
+    }
+    if(wanted.includes(".js")) {
+        wanted = wanted.split(".js")[0];
+    }
+
+    if(!fs.existsSync(path.join(__dirname, '../web/panel/assets/js/' + wanted + '.js'))) {
+        res.status(404);
+        res.setHeader('Content-Type', 'text/json');
+        res.send(JSON.stringify({
+            "code": "404",
+            "error": "STYLESHEET_NOT_FOUND"
+        }, null, 2));
+        res.end();
+    } else {
+        res.setHeader('Content-Type', 'text/javascript');
+        res.send(fs.readFileSync(path.join(__dirname, '../web/panel/assets/js/' + wanted + '.js'), "utf8"))
+        res.end();
+    }
+});
+
 app.get("/static/image/*", (req, res) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
 
