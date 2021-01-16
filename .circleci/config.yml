@@ -12,8 +12,10 @@ commands:
       - run: apt update && DEBIAN_FRONTEND=noninteractive apt install -y --no-install-recommends git gcc g++ sudo curl wget ca-certificates
       - run: sudo curl -sL http://deb.nodesource.com/setup_14.x | sudo bash -
       - run: apt-get install -y --no-install-recommends nodejs
+      - run: mkdir /etc/pipeboard && cd /etc/pipeboard
       - run: git config --global url.git://github.com/.insteadOf https://github.com/
       - run: git clone https://github.com/Pipeboard/Pipeboard.git ./
+      - run: ls
       - run: npm install -g .
       - run: npm run run
 workflows:
