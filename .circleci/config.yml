@@ -8,8 +8,8 @@ jobs:
 commands:
   execute-run:
     steps:
-      - run: DEBIAN_FRONTEND=noninteractive
-      - run: apt update && apt install -y git sudo curl nodejs
+      - run: export DEBIAN_FRONTEND=noninteractive
+      - run: apt update && apt install -y --no-install-recommends git sudo curl nodejs
       - run: git clone https://github.com/Pipeboard/Pipeboard.git ./
       - run: curl -sL https://deb.nodesource.com/setup_14.x | bash
       - run: npm install -g . | npm run run
