@@ -2,14 +2,14 @@ version: 2.1
 jobs:
   run-test:
     docker:
-      - image: ubuntu
+      - image: ubuntu:18.04
     steps:
       - execute-run
 commands:
   execute-run:
     steps:
       - run: export DEBIAN_FRONTEND=noninteractive
-      - run: apt update && apt install -y --no-install-recommends git sudo curl nodejs
+      - run: apt update && DEBIAN_FRONTEND=noninteractive apt install -y --no-install-recommends git sudo curl nodejs
       - run: git clone https://github.com/Pipeboard/Pipeboard.git ./
       - run: curl -sL https://deb.nodesource.com/setup_14.x | bash
       - run: npm install -g . | npm run run
