@@ -4,7 +4,7 @@
 
     $url = $es->url;
 
-    if(!isset($es->envs->has_been_setup) || $es->envs->has_been_setup == "false") {
+    if($es->envs->has_been_setup !== true) {
         $goto = "setup";
     } else {
         $goto = $url;

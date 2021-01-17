@@ -1,13 +1,14 @@
-.page_header {
+.header {
     background-color: #133140;
     height: 62px;
     width: calc(100% - var(--side_clamps));
     padding: 0px var(--side_clamp);
     position: fixed;
     top: 0;
+    z-index: 99;
 }
 
-.page_header .pb_logo {
+.header .pb_logo {
     height: 44px;
     width: 44px;
     padding: 9px 0px;
@@ -15,7 +16,7 @@
     left: -1.5px;
 }
 
-.page_header .center_pb_logo {
+.header .center_pb_logo {
     text-align: center;
     position: absolute;
     left: 0;
@@ -23,8 +24,9 @@
     margin: auto;
 }
 
-.page_header .pb_logo .logo_img {
+.header .pb_logo .logo_img {
     height: 100%;
     width: 100%;
     filter: invert() brightness(50);
 }
+
