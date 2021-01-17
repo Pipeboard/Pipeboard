@@ -1,0 +1,28 @@
+name: Github CI
+
+on:
+  push:
+    branches: [ stable ]
+  pull_request:
+    branches: [ stable ]
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+    - uses: actions/checkout@v2
+    - name: Add Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Initalize NPM
+      run: sudo npm ci
+    - name: Register Pipeboard Commands
+      run: sudo npm install -g .
+    - name: Prepare Pipeboard
+      run: sudo pipeboard prep
+    - name: Test Pipeboard
+      run: sudo pipeboard run --close-after 5
